@@ -1,0 +1,65 @@
+.btn {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 90;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  border-radius: 50%;
+  border: 1px solid rgba(201, 168, 76, 0.5);
+  background: rgba(30, 25, 64, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  color: var(--accent-light);
+  cursor: pointer;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(255, 255, 255, 0.08) inset;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px);
+  transition: opacity 0.25s, visibility 0.25s, transform 0.25s, background 0.2s, box-shadow 0.2s;
+}
+
+.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.btn:hover {
+  background: rgba(201, 168, 76, 0.25);
+  box-shadow: 0 8px 32px rgba(201, 168, 76, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.12) inset;
+}
+
+.btn:active {
+  transform: translateY(2px);
+}
+
+.visible:active {
+  transform: translateY(2px);
+}
+
+@media (max-width: 600px) {
+  .btn {
+    right: 16px;
+    bottom: 16px;
+    width: 44px;
+    height: 44px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn {
+    transition: opacity 0.25s, visibility 0.25s, background 0.2s, box-shadow 0.2s;
+  }
+
+  .btn,
+  .visible,
+  .btn:active,
+  .visible:active {
+    transform: none;
+  }
+}

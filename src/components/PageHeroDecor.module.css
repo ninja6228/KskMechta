@@ -1,0 +1,98 @@
+@keyframes decorFloat1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(48px, -36px) scale(1.04); }
+  50% { transform: translate(24px, 28px) scale(0.98); }
+  75% { transform: translate(-32px, -16px) scale(1.02); }
+}
+
+@keyframes decorFloat2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(-40px, -28px) scale(1.03); }
+  66% { transform: translate(36px, 20px) scale(0.97); }
+}
+
+@keyframes decorFloat3 {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  50% { transform: translate(-28px, 32px) rotate(8deg); }
+}
+
+@keyframes decorFloat4 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  40% { transform: translate(22px, -24px) scale(1.06); }
+  80% { transform: translate(-18px, 14px) scale(0.95); }
+}
+
+.circle1,
+.circle2,
+.circle3,
+.circle4 {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  will-change: transform;
+}
+
+.circle1 {
+  width: 620px;
+  height: 620px;
+  background: rgba(255, 255, 255, 0.07);
+  top: -240px;
+  left: -180px;
+  animation: decorFloat1 22s ease-in-out infinite;
+}
+
+.circle2 {
+  width: 480px;
+  height: 480px;
+  background: rgba(255, 255, 255, 0.05);
+  bottom: -140px;
+  right: -80px;
+  animation: decorFloat2 18s ease-in-out infinite;
+  animation-delay: -4s;
+}
+
+.circle3 {
+  width: 320px;
+  height: 320px;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  top: 12%;
+  right: 8%;
+  animation: decorFloat3 14s ease-in-out infinite;
+  animation-delay: -7s;
+}
+
+.circle4 {
+  width: 220px;
+  height: 220px;
+  background: rgba(255, 255, 255, 0.06);
+  bottom: 8%;
+  left: 38%;
+  animation: decorFloat4 16s ease-in-out infinite;
+  animation-delay: -2s;
+}
+
+.purple .circle1 {
+  background: rgba(74, 65, 144, 0.3);
+  filter: blur(2px);
+}
+
+.purple .circle2 {
+  background: rgba(201, 168, 76, 0.08);
+}
+
+.purple .circle3 {
+  border-color: rgba(255, 255, 255, 0.06);
+}
+
+.purple .circle4 {
+  background: rgba(74, 65, 144, 0.18);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .circle1,
+  .circle2,
+  .circle3,
+  .circle4 {
+    animation: none;
+  }
+}

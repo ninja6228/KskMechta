@@ -1,0 +1,39 @@
+@keyframes decorFloat1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(48px, -36px) scale(1.04); }
+  50% { transform: translate(24px, 28px) scale(0.98); }
+  75% { transform: translate(-32px, -16px) scale(1.02); }
+}
+
+@keyframes decorFloat2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(-40px, -28px) scale(1.03); }
+  66% { transform: translate(36px, 20px) scale(0.97); }
+}
+
+@keyframes decorFloat3 {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  50% { transform: translate(-28px, 32px) rotate(8deg); }
+}
+
+@keyframes decorFloat4 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  40% { transform: translate(22px, -24px) scale(1.06); }
+  80% { transform: translate(-18px, 14px) scale(0.95); }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
