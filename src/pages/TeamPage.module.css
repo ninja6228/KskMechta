@@ -6,7 +6,6 @@
   background: #f4f9fd; color: var(--text);
 }
 
-/* в”Ђв”Ђ Header в”Ђв”Ђ */
 .header {
   position: sticky; top: 0; z-index: 100;
   background: rgba(255,255,255,0.9);
@@ -20,7 +19,6 @@
 .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); font-weight: 800; font-size: 17px; }
 .logo img { height: 32px; }
 
-/* в”Ђв”Ђ Hero в”Ђв”Ђ */
 .hero {
   padding: 64px 0 52px;
   position: relative; overflow: hidden;

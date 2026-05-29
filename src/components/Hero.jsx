@@ -33,7 +33,7 @@ export default function Hero() {
         </div>
 
         <h1 className={styles.title}>
-          Живи <span className={styles.accent}>в ритме</span> копыт
+          Живи в ритме <span className={styles.accent}>Мечты</span>
         </h1>
 
         <p className={styles.subtitle}>
