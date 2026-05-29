@@ -35,7 +35,9 @@
 .circle1 {
   width: 620px;
   height: 620px;
-  background: rgba(255, 255, 255, 0.07);
+  /* иван-чай */
+  background: radial-gradient(circle, rgba(224,67,108,0.2) 0%, transparent 70%);
+  filter: blur(8px);
   top: -240px;
   left: -180px;
   animation: decorFloat1 22s ease-in-out infinite;
@@ -44,7 +46,9 @@
 .circle2 {
   width: 480px;
   height: 480px;
-  background: rgba(255, 255, 255, 0.05);
+  /* борщевик */
+  background: radial-gradient(circle, rgba(90,170,72,0.16) 0%, transparent 70%);
+  filter: blur(6px);
   bottom: -140px;
   right: -80px;
   animation: decorFloat2 18s ease-in-out infinite;
@@ -54,7 +58,8 @@
 .circle3 {
   width: 320px;
   height: 320px;
-  border: 1px solid rgba(255, 255, 255, 0.07);
+  /* венерин башмачок */
+  border: 1px solid rgba(201,150,14,0.2);
   top: 12%;
   right: 8%;
   animation: decorFloat3 14s ease-in-out infinite;
@@ -64,28 +69,31 @@
 .circle4 {
   width: 220px;
   height: 220px;
-  background: rgba(255, 255, 255, 0.06);
+  /* венерин башмачок — золото */
+  background: radial-gradient(circle, rgba(201,150,14,0.14) 0%, transparent 70%);
+  filter: blur(4px);
   bottom: 8%;
   left: 38%;
   animation: decorFloat4 16s ease-in-out infinite;
   animation-delay: -2s;
 }
 
+/* Для страниц программ — более насыщенный цветочный тон */
 .purple .circle1 {
-  background: rgba(74, 65, 144, 0.3);
-  filter: blur(2px);
+  background: radial-gradient(circle, rgba(224,67,108,0.28) 0%, transparent 70%);
+  filter: blur(10px);
 }
 
 .purple .circle2 {
-  background: rgba(201, 168, 76, 0.08);
+  background: radial-gradient(circle, rgba(90,170,72,0.22) 0%, transparent 70%);
 }
 
 .purple .circle3 {
-  border-color: rgba(255, 255, 255, 0.06);
+  border-color: rgba(201,150,14,0.3);
 }
 
 .purple .circle4 {
-  background: rgba(74, 65, 144, 0.18);
+  background: radial-gradient(circle, rgba(201,150,14,0.2) 0%, transparent 70%);
 }
 
 @media (prefers-reduced-motion: reduce) {

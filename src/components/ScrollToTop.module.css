@@ -10,13 +10,13 @@
   height: 48px;
   padding: 0;
   border-radius: 50%;
-  border: 1px solid rgba(201, 168, 76, 0.5);
-  background: rgba(30, 25, 64, 0.88);
+  border: 1px solid rgba(42, 92, 64, 0.22);
+  background: rgba(255, 255, 255, 0.82);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  color: var(--accent-light);
+  color: var(--primary);
   cursor: pointer;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(255, 255, 255, 0.08) inset;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(255, 255, 255, 0.9) inset;
   opacity: 0;
   visibility: hidden;
   transform: translateY(12px);
@@ -30,8 +30,9 @@
 }
 
 .btn:hover {
-  background: rgba(201, 168, 76, 0.25);
-  box-shadow: 0 8px 32px rgba(201, 168, 76, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.12) inset;
+  background: rgba(255, 255, 255, 0.96);
+  border-color: rgba(42, 92, 64, 0.38);
+  box-shadow: 0 8px 32px rgba(42, 92, 64, 0.15), 0 0 0 1px rgba(255, 255, 255, 0.9) inset;
 }
 
 .btn:active {

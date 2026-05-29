@@ -9,10 +9,10 @@
 }
 
 .scrolled {
-  background: rgba(30, 25, 64, 0.92);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  box-shadow: 0 2px 24px rgba(0,0,0,0.4);
+  background: rgba(255,255,255,0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 2px 20px rgba(0,0,0,0.08), 0 1px 0 rgba(255,255,255,0.9);
   padding: 12px 0;
 }
 
@@ -22,6 +22,7 @@
   gap: 32px;
 }
 
+/* ── Logo ── */
 .logo {
   display: flex;
   align-items: center;
@@ -33,52 +34,58 @@
 .logo img {
   height: 40px;
   width: auto;
-  filter: brightness(0) invert(1);
 }
 
 .logo span {
   font-weight: 800;
   font-size: 18px;
-  color: #fff;
+  color: var(--text);
   letter-spacing: 0.02em;
+  white-space: nowrap;
 }
 
+/* ── Nav ── */
 .nav {
   display: flex;
-  gap: 28px;
+  gap: 24px;
   flex: 1;
   justify-content: center;
+  align-items: center;
 }
 
 .navLink {
-  color: rgba(255,255,255,0.8);
+  color: var(--text);
   text-decoration: none;
   font-size: 13px;
   font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
+  white-space: nowrap;
   transition: color 0.2s;
 }
 
-.navLink:hover { color: #fff; }
+.navLink:hover { color: var(--primary); }
 
+/* ── Actions ── */
 .actions {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 16px;
   flex-shrink: 0;
 }
 
 .phone {
-  color: rgba(255,255,255,0.75);
+  color: var(--text);
   text-decoration: none;
   font-size: 14px;
   font-weight: 600;
+  white-space: nowrap;
   transition: color 0.2s;
 }
 
-.phone:hover { color: #fff; }
+.phone:hover { color: var(--primary); }
 
+/* ── Burger ── */
 .burger {
   display: none;
   flex-direction: column;
@@ -86,14 +93,15 @@
   background: none;
   border: none;
   cursor: pointer;
-  padding: 4px;
+  padding: 6px;
+  flex-shrink: 0;
 }
 
 .burger span {
   display: block;
   width: 24px;
   height: 2px;
-  background: #fff;
+  background: var(--text);
   border-radius: 2px;
   transition: transform 0.25s, opacity 0.25s;
 }
@@ -102,27 +110,56 @@
 .burgerOpen span:nth-child(2) { opacity: 0; }
 .burgerOpen span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
 
-@media (max-width: 1060px) {
-  .inner {
-    justify-content: space-between;
-  }
+/* ══════════════════════════════
+   Breakpoint 1: 1280px — убираем телефон, уменьшаем отступы
+   ══════════════════════════════ */
+@media (max-width: 1280px) {
+  .inner { gap: 20px; }
+  .nav { gap: 18px; }
+  .phone { display: none; }
+  .actions { gap: 12px; }
+}
 
+/* ══════════════════════════════
+   Breakpoint 2: 1060px — ещё компактнее, убираем текст логотипа
+   ══════════════════════════════ */
+@media (max-width: 1060px) {
+  .inner { gap: 14px; }
+  .nav { gap: 12px; }
+  .navLink { font-size: 11px; letter-spacing: 0.04em; }
+  .logo span { display: none; }
+}
+
+/* ══════════════════════════════
+   Breakpoint 3: 860px — бургер-меню
+   ══════════════════════════════ */
+@media (max-width: 860px) {
+  .inner { justify-content: space-between; }
   .logo span { display: none; }
 
   .nav {
     position: fixed;
     inset: 0;
-    background: rgba(30,25,64,0.97);
+    background: rgba(245,249,245,0.97);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 32px;
     transform: translateX(100%);
-    transition: transform 0.3s;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     z-index: 99;
   }
+
   .navOpen { transform: translateX(0); }
-  .navLink { font-size: 18px; }
+
+  .navLink {
+    font-size: 20px;
+    letter-spacing: 0.06em;
+    color: var(--text);
+  }
+
   .phone { display: none; }
   .burger { display: flex; z-index: 100; }
 }

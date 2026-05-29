@@ -17,16 +17,16 @@ const PHOTOS = [
 ]
 
 const GRADIENTS = [
-  'linear-gradient(135deg, #1e2a10 0%, #2a3d18 100%)',
-  'linear-gradient(135deg, #1a1040 0%, #322b65 100%)',
-  'linear-gradient(135deg, #2a1500 0%, #3d2200 100%)',
-  'linear-gradient(135deg, #101a30 0%, #1a2d4a 100%)',
-  'linear-gradient(135deg, #2a1800 0%, #3d2800 100%)',
-  'linear-gradient(135deg, #1a0a30 0%, #2d1a50 100%)',
-  'linear-gradient(135deg, #0a2010 0%, #183020 100%)',
-  'linear-gradient(135deg, #2a1a10 0%, #3d2a18 100%)',
-  'linear-gradient(135deg, #1a1000 0%, #2a1a00 100%)',
-  'linear-gradient(135deg, #0a1020 0%, #1a2030 100%)',
+  'linear-gradient(135deg, #eef8eb 0%, #d4f0c8 100%)',  /* борщевик луговой */
+  'linear-gradient(135deg, #fce8ed 0%, #f5ccd8 100%)',  /* иван-чай нежный */
+  'linear-gradient(135deg, #fdf6e0 0%, #f5e4b0 100%)',  /* венерин башмачок */
+  'linear-gradient(135deg, #e8f4fd 0%, #ccdff5 100%)',  /* небо над лугом */
+  'linear-gradient(135deg, #f5e8fe 0%, #e0ccf8 100%)',  /* кружевной сиреневый */
+  'linear-gradient(135deg, #e8fdf5 0%, #c4f0e0 100%)',  /* луговой тил */
+  'linear-gradient(135deg, #fde8f0 0%, #f8cce0 100%)',  /* тёплый иван-чай */
+  'linear-gradient(135deg, #e8f5ee 0%, #cce8d8 100%)',  /* лесная зелень */
+  'linear-gradient(135deg, #fef8e8 0%, #f8ecca 100%)',  /* золото заката */
+  'linear-gradient(135deg, #eeeffe 0%, #d8dafc 100%)',  /* утренняя дымка */
 ]
 
 export default function Gallery() {

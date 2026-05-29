@@ -1,5 +1,5 @@
 .section {
-  background: #1e1940;
+  background: #fef8f0;
 }
 
 .grid {
@@ -9,30 +9,33 @@
 }
 
 .card {
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.85);
+  border: 1.5px solid rgba(255,255,255,0.95);
   border-radius: 20px;
   padding: 32px 28px;
   display: flex;
   flex-direction: column;
   gap: 16px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
   transition: transform 0.25s, box-shadow 0.25s;
 }
 
 .card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 16px 40px rgba(0,0,0,0.3);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.1);
 }
 
 .stars {
   font-size: 20px;
-  color: #e8c97a;
+  color: #e8b832;
   letter-spacing: 2px;
 }
 
 .text {
   font-size: 14px;
-  color: rgba(255,255,255,0.78);
+  color: rgba(26,46,32,0.72);
   line-height: 1.75;
   flex: 1;
   font-style: italic;
@@ -43,14 +46,14 @@
   align-items: center;
   gap: 14px;
   padding-top: 16px;
-  border-top: 1px solid rgba(255,255,255,0.08);
+  border-top: 1px solid rgba(0,0,0,0.08);
 }
 
 .avatar {
   width: 46px;
   height: 46px;
   border-radius: 50%;
-  background: rgba(74,65,144,0.5);
+  background: linear-gradient(135deg, #fce8ed, #fdf6e0);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -61,12 +64,12 @@
 .name {
   font-size: 14px;
   font-weight: 700;
-  color: #fff;
+  color: var(--text);
 }
 
 .role {
   font-size: 12px;
-  color: rgba(255,255,255,0.5);
+  color: rgba(26,46,32,0.5);
   margin-top: 2px;
 }
 

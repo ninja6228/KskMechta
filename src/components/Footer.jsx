@@ -45,6 +45,7 @@ export default function Footer() {
               <li><a href="#features">О клубе</a></li>
               <li><a href="#services">Услуги</a></li>
               <li><a href="#programs">Программы</a></li>
+              <li><a href="#team">Команда</a></li>
               <li><a href="#gallery">Галерея</a></li>
               <li><a href="#testimonials">Отзывы</a></li>
             </ul>

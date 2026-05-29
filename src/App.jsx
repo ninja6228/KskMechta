@@ -8,11 +8,13 @@ import Features from './components/Features'
 import Services from './components/Services'
 import Programs from './components/Programs'
 import Gallery from './components/Gallery'
+import Team from './components/Team'
 import Testimonials from './components/Testimonials'
 import Footer from './components/Footer'
 import ScrollToTop from './components/ScrollToTop'
 import ProgramPage from './pages/ProgramPage'
 import ServicePage from './pages/ServicePage'
+import TeamPage from './pages/TeamPage'
 
 function HomePage() {
   return (
@@ -24,6 +26,7 @@ function HomePage() {
         <Services />
         <Programs />
         <Gallery />
+        <Team />
         <Testimonials />
       </main>
       <Footer />
@@ -41,6 +44,7 @@ export default function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/program/:id" element={<ProgramPage />} />
           <Route path="/service/:id" element={<ServicePage />} />
+          <Route path="/team/:id" element={<TeamPage />} />
         </Routes>
       </ModalProvider>
     </BrowserRouter>

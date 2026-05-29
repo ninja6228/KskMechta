@@ -1,5 +1,5 @@
 .section {
-  background: linear-gradient(180deg, #252050 0%, #1e1940 100%);
+  background: #f5f9f5;
 }
 
 .grid {
@@ -9,16 +9,17 @@
 }
 
 .card {
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.1);
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.07);
   border-radius: 20px;
   overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
   transition: transform 0.25s, box-shadow 0.25s;
 }
 
 .card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 20px 48px rgba(0,0,0,0.35);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.1);
 }
 
 .cardTop {
@@ -30,8 +31,8 @@
   position: absolute;
   top: 14px;
   left: 14px;
-  background: rgba(201,168,76,0.9);
-  color: #1e1940;
+  background: rgba(224,67,108,0.9);
+  color: #fff;
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.08em;
@@ -48,13 +49,13 @@
 .cardTitle {
   font-size: 18px;
   font-weight: 700;
-  color: #fff;
+  color: var(--text);
   margin-bottom: 10px;
 }
 
 .cardDesc {
   font-size: 14px;
-  color: rgba(255,255,255,0.65);
+  color: var(--text-muted);
   line-height: 1.65;
   margin-bottom: 16px;
 }
@@ -87,24 +88,24 @@
 
 .metaItem {
   font-size: 13px;
-  color: rgba(255,255,255,0.55);
+  color: rgba(26,46,32,0.55);
 }
 
 .price {
   font-size: 16px;
   font-weight: 700;
-  color: var(--accent-light, #e8c97a);
+  color: var(--primary);
 }
 
 .cardCustom {
   border-style: dashed;
-  border-color: rgba(201, 168, 76, 0.35);
-  background: rgba(201, 168, 76, 0.06);
+  border-color: rgba(42,92,64,0.3);
+  background: rgba(42,92,64,0.05);
 }
 
 .cardCustom:hover {
-  border-color: rgba(201, 168, 76, 0.55);
-  box-shadow: 0 20px 48px rgba(201, 168, 76, 0.12);
+  border-color: rgba(42,92,64,0.5);
+  box-shadow: 0 20px 48px rgba(42,92,64,0.1);
 }
 
 .cardCustomInner {
@@ -126,12 +127,12 @@
 .customTitle {
   font-size: 18px;
   font-weight: 700;
-  color: #fff;
+  color: var(--text);
 }
 
 .customDesc {
   font-size: 14px;
-  color: rgba(255, 255, 255, 0.65);
+  color: var(--text-muted);
   line-height: 1.65;
   max-width: 280px;
 }

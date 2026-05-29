@@ -1,5 +1,5 @@
 .section {
-  background: linear-gradient(180deg, #1e1940 0%, #252050 100%);
+  background: #eef8eb;
 }
 
 .grid {
@@ -9,25 +9,28 @@
 }
 
 .card {
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.82);
+  border: 1.5px solid rgba(255,255,255,0.95);
   border-radius: 20px;
   padding: 36px 28px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
   transition: background 0.25s, transform 0.25s, box-shadow 0.25s;
 }
 
 .card:hover {
-  background: rgba(255,255,255,0.09);
+  background: rgba(255,255,255,0.97);
   transform: translateY(-4px);
-  box-shadow: 0 16px 40px rgba(0,0,0,0.3);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.1);
 }
 
 .iconWrap {
   width: 60px;
   height: 60px;
   border-radius: 16px;
-  background: rgba(201,168,76,0.15);
-  border: 1px solid rgba(201,168,76,0.2);
+  background: linear-gradient(135deg, rgba(90,170,72,0.15), rgba(42,92,64,0.08));
+  border: 1.5px solid rgba(90,170,72,0.3);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -39,13 +42,13 @@
 .cardTitle {
   font-size: 17px;
   font-weight: 700;
-  color: #fff;
+  color: var(--text);
   margin-bottom: 10px;
 }
 
 .cardDesc {
   font-size: 14px;
-  color: rgba(255,255,255,0.65);
+  color: var(--text-muted);
   line-height: 1.65;
 }
 
