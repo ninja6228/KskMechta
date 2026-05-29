@@ -2,7 +2,7 @@ export const TEAM = [
   {
     id: 'sokolova',
     emoji: '👩‍🦰',
-    avatarGradient: 'linear-gradient(135deg, #fce8ed 0%, #f5ccd8 100%)',
+    avatarGradient: 'linear-gradient(135deg, #ddeef8 0%, #c4ddf0 100%)',
     tag: 'Главный тренер',
     tagColor: '#e0436c',
     name: 'Елена Соколова',
@@ -22,7 +22,7 @@ export const TEAM = [
   {
     id: 'volkov',
     emoji: '🧑‍🦱',
-    avatarGradient: 'linear-gradient(135deg, #e8f4fd 0%, #ccdff5 100%)',
+    avatarGradient: 'linear-gradient(135deg, #e4f0f8 0%, #c8ddef 100%)',
     tag: 'Тренер по выездке',
     tagColor: '#2a5c40',
     name: 'Дмитрий Волков',
@@ -42,7 +42,7 @@ export const TEAM = [
   {
     id: 'berezina',
     emoji: '👩‍🏫',
-    avatarGradient: 'linear-gradient(135deg, #eef8eb 0%, #d4f0c8 100%)',
+    avatarGradient: 'linear-gradient(135deg, #e8f4ee 0%, #cce8d8 100%)',
     tag: 'Детский тренер',
     tagColor: '#5aaa48',
     name: 'Анна Берёзина',
@@ -62,7 +62,7 @@ export const TEAM = [
   {
     id: 'lesnikov',
     emoji: '🧔',
-    avatarGradient: 'linear-gradient(135deg, #fdf6e0 0%, #f5e4b0 100%)',
+    avatarGradient: 'linear-gradient(135deg, #e4f4ec 0%, #c8e4d8 100%)',
     tag: 'Инструктор походов',
     tagColor: '#c9960e',
     name: 'Михаил Лесников',
@@ -82,7 +82,7 @@ export const TEAM = [
   {
     id: 'tsvetkova',
     emoji: '👩‍⚕️',
-    avatarGradient: 'linear-gradient(135deg, #f5e8fe 0%, #e0ccf8 100%)',
+    avatarGradient: 'linear-gradient(135deg, #e4eef8 0%, #c8d8ee 100%)',
     tag: 'Ветеринарный врач',
     tagColor: '#7c3aed',
     name: 'Ольга Цветкова',
@@ -102,7 +102,7 @@ export const TEAM = [
   {
     id: 'zaitsev',
     emoji: '📸',
-    avatarGradient: 'linear-gradient(135deg, #e8fdf5 0%, #c4f0e0 100%)',
+    avatarGradient: 'linear-gradient(135deg, #e4f4f8 0%, #c8e8f4 100%)',
     tag: 'Фотограф / Ивент',
     tagColor: '#2a8a6a',
     name: 'Кирилл Зайцев',

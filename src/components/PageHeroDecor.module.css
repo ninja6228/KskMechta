@@ -35,8 +35,8 @@
 .circle1 {
   width: 620px;
   height: 620px;
-  /* иван-чай */
-  background: radial-gradient(circle, rgba(224,67,108,0.2) 0%, transparent 70%);
+  /* небо */
+  background: radial-gradient(circle, rgba(74,154,197,0.22) 0%, transparent 70%);
   filter: blur(8px);
   top: -240px;
   left: -180px;
@@ -46,8 +46,8 @@
 .circle2 {
   width: 480px;
   height: 480px;
-  /* борщевик */
-  background: radial-gradient(circle, rgba(90,170,72,0.16) 0%, transparent 70%);
+  /* лес */
+  background: radial-gradient(circle, rgba(45,90,61,0.16) 0%, transparent 70%);
   filter: blur(6px);
   bottom: -140px;
   right: -80px;
@@ -58,8 +58,8 @@
 .circle3 {
   width: 320px;
   height: 320px;
-  /* венерин башмачок */
-  border: 1px solid rgba(201,150,14,0.2);
+  /* вода — кольцо */
+  border: 1px solid rgba(42,90,122,0.18);
   top: 12%;
   right: 8%;
   animation: decorFloat3 14s ease-in-out infinite;
@@ -69,8 +69,8 @@
 .circle4 {
   width: 220px;
   height: 220px;
-  /* венерин башмачок — золото */
-  background: radial-gradient(circle, rgba(201,150,14,0.14) 0%, transparent 70%);
+  /* глубокая вода */
+  background: radial-gradient(circle, rgba(26,106,144,0.16) 0%, transparent 70%);
   filter: blur(4px);
   bottom: 8%;
   left: 38%;
@@ -78,29 +78,21 @@
   animation-delay: -2s;
 }
 
-/* Для страниц программ — более насыщенный цветочный тон */
-.purple .circle1 {
-  background: radial-gradient(circle, rgba(224,67,108,0.28) 0%, transparent 70%);
+/* Вариант для страниц с насыщенным фоном */
+.rich .circle1 {
+  background: radial-gradient(circle, rgba(74,154,197,0.30) 0%, transparent 70%);
   filter: blur(10px);
 }
-
-.purple .circle2 {
-  background: radial-gradient(circle, rgba(90,170,72,0.22) 0%, transparent 70%);
+.rich .circle2 {
+  background: radial-gradient(circle, rgba(45,90,61,0.22) 0%, transparent 70%);
 }
-
-.purple .circle3 {
-  border-color: rgba(201,150,14,0.3);
+.rich .circle3 {
+  border-color: rgba(42,90,122,0.28);
 }
-
-.purple .circle4 {
-  background: radial-gradient(circle, rgba(201,150,14,0.2) 0%, transparent 70%);
+.rich .circle4 {
+  background: radial-gradient(circle, rgba(26,106,144,0.22) 0%, transparent 70%);
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .circle1,
-  .circle2,
-  .circle3,
-  .circle4 {
-    animation: none;
-  }
+  .circle1, .circle2, .circle3, .circle4 { animation: none; }
 }

@@ -2,12 +2,14 @@
   min-height: 100vh;
   position: relative;
   overflow: hidden;
-  background: linear-gradient(140deg, #fef0f5 0%, #f3fdf0 22%, #fffdf0 50%, #f0fdf8 75%, #f8f0fe 100%);
+  background: linear-gradient(140deg, #7cbea8 0%, #8ec8b4 20%, #60aed4 40%, #80c0a8 60%, #52a0cc 80%, #80bca8 100%);
+  background-size: 300% 300%;
+  animation: gradientDriftD 22s ease-in-out infinite;
   display: flex;
   align-items: center;
 }
 
-/* Decorative circles — spread across full width */
+/* Decorative circles */
 @keyframes float1 {
   0%, 100% { transform: translate(0, 0) scale(1); }
   25% { transform: translate(48px, -36px) scale(1.04); }
@@ -45,8 +47,7 @@
   width: 700px;
   height: 700px;
   border-radius: 50%;
-  /* иван-чай — нежный отсвет */
-  background: radial-gradient(circle, rgba(224,67,108,0.18) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(20,150,80,0.38) 0%, transparent 70%);
   filter: blur(40px);
   top: -280px;
   left: -200px;
@@ -57,8 +58,7 @@
   width: 520px;
   height: 520px;
   border-radius: 50%;
-  /* борщевик — свежий луговой зелёный */
-  background: radial-gradient(circle, rgba(90,170,72,0.16) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(10,110,60,0.30) 0%, transparent 70%);
   filter: blur(30px);
   bottom: -150px;
   right: 5%;
@@ -70,8 +70,7 @@
   width: 380px;
   height: 380px;
   border-radius: 50%;
-  /* кружевная рамка — венерин башмачок */
-  border: 1px solid rgba(201,150,14,0.25);
+  border: 2px solid rgba(255,255,255,0.30);
   top: 15%;
   right: 20%;
   animation: float3 14s ease-in-out infinite;
@@ -82,8 +81,7 @@
   width: 260px;
   height: 260px;
   border-radius: 50%;
-  /* венерин башмачок — золото */
-  background: radial-gradient(circle, rgba(201,150,14,0.14) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(20,100,180,0.32) 0%, transparent 70%);
   filter: blur(20px);
   bottom: 10%;
   left: 40%;
@@ -92,15 +90,8 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .circle1,
-  .circle2,
-  .circle3,
-  .circle4 {
-    animation: none;
-  }
+  .circle1, .circle2, .circle3, .circle4 { animation: none; }
 }
-
-/* контент поверх декоративных лошадок */
 
 .content {
   display: flex;
@@ -117,15 +108,17 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: rgba(255,255,255,0.65);
-  border: 1.5px solid rgba(255,255,255,0.9);
+  background: rgba(255,255,255,0.22);
+  border: 1.5px solid rgba(255,255,255,0.55);
   border-radius: 50px;
   padding: 6px 20px;
   font-size: 13px;
   font-weight: 600;
-  color: var(--primary);
+  color: #fff;
   letter-spacing: 0.04em;
   margin-bottom: 32px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
 .title {
@@ -133,16 +126,17 @@
   font-size: clamp(44px, 7vw, 88px);
   font-weight: 700;
   line-height: 1.05;
-  color: var(--text);
+  color: #fff;
+  text-shadow: 0 2px 20px rgba(0,40,80,0.22);
   margin-bottom: 28px;
   max-width: 780px;
 }
 
-.accent { color: var(--ivan-tea); }
+.accent { color: #a8e8d0; }
 
 .subtitle {
   font-size: clamp(15px, 1.5vw, 18px);
-  color: rgba(26,46,32,0.65);
+  color: rgba(255,255,255,0.82);
   max-width: 560px;
   margin-bottom: 44px;
   line-height: 1.75;
@@ -171,13 +165,14 @@
 .statNum {
   font-size: clamp(22px, 2.2vw, 32px);
   font-weight: 800;
-  color: var(--text);
+  color: #fff;
   line-height: 1;
+  text-shadow: 0 2px 12px rgba(0,40,80,0.18);
 }
 
 .statLabel {
   font-size: 12px;
-  color: rgba(26,46,32,0.55);
+  color: rgba(255,255,255,0.72);
   font-weight: 500;
   letter-spacing: 0.04em;
 }
@@ -185,15 +180,107 @@
 .divider {
   width: 1px;
   height: 38px;
-  background: rgba(26,46,32,0.15);
+  background: rgba(255,255,255,0.25);
   flex-shrink: 0;
 }
 
+/* ── Emblem decoration (right side) ── */
+.heroDecor {
+  position: absolute;
+  right: max(-60px, calc(50% - 680px));
+  top: 50%;
+  transform: translateY(-50%);
+  width: 460px;
+  height: 460px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes orbitSpin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+@keyframes orbitSpinR {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(-360deg); }
+}
+
+.decorOrbit1 {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255,255,255,0.32);
+  animation: orbitSpin 36s linear infinite;
+}
+.decorOrbit1::after {
+  content: '✦';
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 10px;
+  color: rgba(255,255,255,0.55);
+}
+
+.decorOrbit2 {
+  position: absolute;
+  inset: 58px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.22);
+  animation: orbitSpinR 24s linear infinite;
+}
+.decorOrbit2::after {
+  content: '✦';
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 8px;
+  color: rgba(255,255,255,0.40);
+}
+
+.decorOrbit3 {
+  position: absolute;
+  inset: 114px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.14);
+}
+
+.decorGlow {
+  position: absolute;
+  inset: 80px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, transparent 70%);
+  filter: blur(24px);
+}
+
+.decorEmblem {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 180px;
+  line-height: 1;
+  color: rgba(255,255,255,0.75);
+  filter: drop-shadow(0 10px 36px rgba(0,40,100,0.28));
+  animation: float2 9s ease-in-out infinite;
+}
+
+@media (max-width: 1100px) {
+  .heroDecor { width: 340px; height: 340px; right: -30px; }
+  .decorEmblem { font-size: 130px; }
+  .decorOrbit2 { inset: 44px; }
+  .decorOrbit3 { inset: 86px; }
+}
+
 @media (max-width: 768px) {
-  .content {
-    align-items: center;
-    text-align: center;
-  }
+  .heroDecor { display: none; }
+}
+
+/* ── Content ── */
+@media (max-width: 768px) {
+  .content { align-items: center; text-align: center; }
   .subtitle { text-align: center; }
   .stats { justify-content: center; gap: 16px; }
   .ctas { justify-content: center; }

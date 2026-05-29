@@ -1,5 +1,21 @@
 .section {
-  background: #eef8eb;
+  background: transparent;
+  position: relative;
+}
+
+.section::before {
+  content: '♞';
+  position: absolute;
+  right: 2%;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 340px;
+  line-height: 1;
+  color: var(--primary);
+  opacity: 0.07;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
 }
 
 .grid {
@@ -9,32 +25,33 @@
 }
 
 .card {
-  background: rgba(255,255,255,0.82);
-  border: 1.5px solid rgba(255,255,255,0.95);
+  background: rgba(255,255,255,0.78);
+  border: 1.5px solid rgba(255,255,255,0.96);
   border-radius: 20px;
   padding: 36px 28px;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 4px 24px rgba(0,30,60,0.10);
   transition: background 0.25s, transform 0.25s, box-shadow 0.25s;
 }
 
 .card:hover {
-  background: rgba(255,255,255,0.97);
-  transform: translateY(-4px);
-  box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+  background: rgba(255,255,255,0.94);
+  transform: translateY(-5px);
+  box-shadow: 0 14px 44px rgba(0,30,60,0.14);
 }
 
 .iconWrap {
   width: 60px;
   height: 60px;
   border-radius: 16px;
-  background: linear-gradient(135deg, rgba(90,170,72,0.15), rgba(42,92,64,0.08));
-  border: 1.5px solid rgba(90,170,72,0.3);
+  background: linear-gradient(135deg, rgba(40,120,170,0.20), rgba(26,66,98,0.10));
+  border: 1.5px solid rgba(40,120,170,0.38);
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 20px;
+  box-shadow: 0 2px 12px rgba(40,120,170,0.12);
 }
 
 .icon { font-size: 26px; }

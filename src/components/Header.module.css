@@ -8,11 +8,25 @@
   transition: background 0.3s, box-shadow 0.3s, padding 0.3s;
 }
 
+/* Прозрачная шапка над Hero — белый текст */
+.header:not(.scrolled) .logo span,
+.header:not(.scrolled) .navLink,
+.header:not(.scrolled) .phone {
+  color: rgba(255,255,255,0.92);
+}
+.header:not(.scrolled) .navLink:hover,
+.header:not(.scrolled) .phone:hover {
+  color: #fff;
+}
+.header:not(.scrolled) .burger span {
+  background: rgba(255,255,255,0.92);
+}
+
 .scrolled {
-  background: rgba(255,255,255,0.88);
+  background: rgba(255,255,255,0.90);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  box-shadow: 0 2px 20px rgba(0,0,0,0.08), 0 1px 0 rgba(255,255,255,0.9);
+  box-shadow: 0 2px 20px rgba(0,0,0,0.10), 0 1px 0 rgba(255,255,255,0.9);
   padding: 12px 0;
 }
 
@@ -140,7 +154,7 @@
   .nav {
     position: fixed;
     inset: 0;
-    background: rgba(245,249,245,0.97);
+    background: rgba(160,210,195,0.97);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     flex-direction: column;

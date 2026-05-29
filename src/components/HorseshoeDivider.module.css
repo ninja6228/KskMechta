@@ -1,0 +1,49 @@
+.wrap {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  max-width: 320px;
+  margin: 0 auto;
+  padding: 24px 24px;
+  position: relative;
+  z-index: 2;
+}
+
+.line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(196,154,42,0.45), transparent);
+  border-radius: 2px;
+}
+
+.emblem {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 40px;
+  transition: transform 0.4s cubic-bezier(0.34,1.4,0.64,1);
+  filter: drop-shadow(0 2px 6px rgba(180,130,10,0.35));
+}
+
+.wrap:hover .emblem {
+  transform: rotate(15deg) scale(1.12);
+  filter: drop-shadow(0 4px 12px rgba(196,154,42,0.55));
+}
+
+.flipped .shoe {
+  transform: scaleY(-1);
+}
+
+.shoe {
+  width: 44px;
+  height: 40px;
+  /* Золото — живой металлический оттенок */
+  color: #c49a2a;
+  transition: color 0.3s;
+}
+
+.wrap:hover .shoe {
+  color: #e0b83a;
+}

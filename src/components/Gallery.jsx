@@ -16,17 +16,18 @@ const PHOTOS = [
   { icon: '📸', label: 'Фотосессии', span: '' },
 ]
 
+/* 🌾 Пастбище — тёплые летние тона поля и солнца */
 const GRADIENTS = [
-  'linear-gradient(135deg, #eef8eb 0%, #d4f0c8 100%)',  /* борщевик луговой */
-  'linear-gradient(135deg, #fce8ed 0%, #f5ccd8 100%)',  /* иван-чай нежный */
-  'linear-gradient(135deg, #fdf6e0 0%, #f5e4b0 100%)',  /* венерин башмачок */
-  'linear-gradient(135deg, #e8f4fd 0%, #ccdff5 100%)',  /* небо над лугом */
-  'linear-gradient(135deg, #f5e8fe 0%, #e0ccf8 100%)',  /* кружевной сиреневый */
-  'linear-gradient(135deg, #e8fdf5 0%, #c4f0e0 100%)',  /* луговой тил */
-  'linear-gradient(135deg, #fde8f0 0%, #f8cce0 100%)',  /* тёплый иван-чай */
-  'linear-gradient(135deg, #e8f5ee 0%, #cce8d8 100%)',  /* лесная зелень */
-  'linear-gradient(135deg, #fef8e8 0%, #f8ecca 100%)',  /* золото заката */
-  'linear-gradient(135deg, #eeeffe 0%, #d8dafc 100%)',  /* утренняя дымка */
+  'linear-gradient(135deg, #f0f8e8 0%, #ddf0c8 100%)',  /* утреннее поле */
+  'linear-gradient(135deg, #e4f0e0 0%, #c8e4b8 100%)',  /* луг */
+  'linear-gradient(135deg, #f4f8e4 0%, #e8f4cc 100%)',  /* солнечная трава */
+  'linear-gradient(135deg, #e8f4dc 0%, #d0e8b8 100%)',  /* клевер */
+  'linear-gradient(135deg, #faf5e4 0%, #f5ead0 100%)',  /* сухая трава, золото */
+  'linear-gradient(135deg, #f8f4e0 0%, #f0e8c4 100%)',  /* колосья */
+  'linear-gradient(135deg, #eef8e8 0%, #d8f0cc 100%)',  /* ранняя зелень */
+  'linear-gradient(135deg, #f5f8e8 0%, #e8f4d4 100%)',  /* поляна */
+  'linear-gradient(135deg, #fdf8ec 0%, #f8f0d4 100%)',  /* вечернее поле */
+  'linear-gradient(135deg, #f0f5e4 0%, #e4ecd0 100%)',  /* туман над лугом */
 ]
 
 export default function Gallery() {

@@ -15,6 +15,16 @@ export default function Hero() {
       <div className={styles.circle2} />
       <div className={styles.circle3} />
       <div className={styles.circle4} />
+
+      {/* Decorative horse emblem — right side */}
+      <div className={styles.heroDecor} aria-hidden="true">
+        <div className={styles.decorOrbit1} />
+        <div className={styles.decorOrbit2} />
+        <div className={styles.decorOrbit3} />
+        <div className={styles.decorGlow} />
+        <div className={styles.decorEmblem}>♞</div>
+      </div>
+
       <WalkingHorse {...WALKING_HORSE_BY_SECTION.hero} />
 
       <div className={`container ${styles.content}`}>

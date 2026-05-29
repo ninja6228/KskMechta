@@ -10,6 +10,7 @@ import Programs from './components/Programs'
 import Gallery from './components/Gallery'
 import Team from './components/Team'
 import Testimonials from './components/Testimonials'
+import HorseshoeDivider from './components/HorseshoeDivider'
 import Footer from './components/Footer'
 import ScrollToTop from './components/ScrollToTop'
 import ProgramPage from './pages/ProgramPage'
@@ -22,11 +23,17 @@ function HomePage() {
       <Header />
       <main>
         <Hero />
+        <HorseshoeDivider />
         <Features />
+        <HorseshoeDivider flipped />
         <Services />
+        <HorseshoeDivider />
         <Programs />
+        <HorseshoeDivider flipped />
         <Gallery />
+        <HorseshoeDivider />
         <Team />
+        <HorseshoeDivider flipped />
         <Testimonials />
       </main>
       <Footer />

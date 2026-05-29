@@ -1,5 +1,20 @@
 .section {
-  background: #f5f9f5;
+  background: transparent;
+  position: relative;
+}
+
+.section::before {
+  content: '♞';
+  position: absolute;
+  right: 1%;
+  bottom: -20px;
+  font-size: 300px;
+  line-height: 1;
+  color: var(--primary);
+  opacity: 0.07;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
 }
 
 .grid {
@@ -9,7 +24,7 @@
 }
 
 .card {
-  background: #fff;
+  background: rgba(255,255,255,0.92);
   border: 1px solid rgba(0,0,0,0.07);
   border-radius: 20px;
   overflow: hidden;
@@ -31,7 +46,7 @@
   position: absolute;
   top: 14px;
   left: 14px;
-  background: rgba(224,67,108,0.9);
+  background: rgba(74,154,197,0.9);
   color: #fff;
   font-size: 11px;
   font-weight: 700;
@@ -88,7 +103,7 @@
 
 .metaItem {
   font-size: 13px;
-  color: rgba(26,46,32,0.55);
+  color: var(--text-muted);
 }
 
 .price {
@@ -99,13 +114,13 @@
 
 .cardCustom {
   border-style: dashed;
-  border-color: rgba(42,92,64,0.3);
-  background: rgba(42,92,64,0.05);
+  border-color: rgba(26,66,98,0.32);
+  background: rgba(26,66,98,0.05);
 }
 
 .cardCustom:hover {
-  border-color: rgba(42,92,64,0.5);
-  box-shadow: 0 20px 48px rgba(42,92,64,0.1);
+  border-color: rgba(26,66,98,0.55);
+  box-shadow: 0 20px 48px rgba(26,66,98,0.12);
 }
 
 .cardCustomInner {
