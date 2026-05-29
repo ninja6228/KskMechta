@@ -1,18 +1,38 @@
+import { useState, useCallback } from 'react'
 import styles from './HorseshoeDivider.module.css'
 
 /**
  * Декоративный разделитель между секциями — SVG-подкова с гвоздевыми отверстиями.
- * Путь построен через evenodd, чтобы отверстия были настоящими «прорезями».
+ * Клик → 360° прокрутка с пружинистым ease.
  */
 export default function HorseshoeDivider({ flipped = false }) {
+  const [spinning, setSpinning] = useState(false)
+
+  const handleClick = useCallback(() => {
+    if (spinning) return
+    setSpinning(true)
+    setTimeout(() => setSpinning(false), 700)
+  }, [spinning])
+
+  const shoeClass = [
+    styles.shoe,
+    spinning ? (flipped ? styles.spinFlipped : styles.spin) : '',
+  ].filter(Boolean).join(' ')
+
   return (
-    <div className={styles.wrap} aria-hidden="true">
+    <div
+      className={[styles.wrap, flipped ? styles.flipped : ''].filter(Boolean).join(' ')}
+      onClick={handleClick}
+      role="button"
+      tabIndex={-1}
+      aria-hidden="true"
+    >
       <div className={styles.line} />
 
-      <div className={`${styles.emblem} ${flipped ? styles.flipped : ''}`}>
+      <div className={styles.emblem}>
         {/* Подкова: внешняя дуга R=32, внутренняя R=20, два «рога», 4 гвоздевых отверстия */}
         <svg
-          className={styles.shoe}
+          className={shoeClass}
           viewBox="0 0 80 72"
           xmlns="http://www.w3.org/2000/svg"
           fill="currentColor"

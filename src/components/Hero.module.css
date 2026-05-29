@@ -2,7 +2,7 @@
   min-height: 100vh;
   position: relative;
   overflow: hidden;
-  background: linear-gradient(140deg, #7cbea8 0%, #8ec8b4 20%, #60aed4 40%, #80c0a8 60%, #52a0cc 80%, #80bca8 100%);
+  background: linear-gradient(140deg, #6ab8d8 0%, #4a90c8 20%, #3060a8 40%, #322b65 65%, #3a3888 85%, #5070b8 100%);
   background-size: 300% 300%;
   animation: gradientDriftD 22s ease-in-out infinite;
   display: flex;
@@ -47,7 +47,7 @@
   width: 700px;
   height: 700px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(20,150,80,0.38) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(20,60,180,0.42) 0%, transparent 70%);
   filter: blur(40px);
   top: -280px;
   left: -200px;
@@ -58,7 +58,7 @@
   width: 520px;
   height: 520px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(10,110,60,0.30) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(50,43,101,0.38) 0%, transparent 70%);
   filter: blur(30px);
   bottom: -150px;
   right: 5%;
@@ -81,7 +81,7 @@
   width: 260px;
   height: 260px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(20,100,180,0.32) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(90,55,200,0.36) 0%, transparent 70%);
   filter: blur(20px);
   bottom: 10%;
   left: 40%;
@@ -132,7 +132,10 @@
   max-width: 780px;
 }
 
-.accent { color: #a8e8d0; }
+.accent {
+  color: #322b65;
+  text-shadow: 0 0 28px rgba(255,255,255,0.60), 0 2px 8px rgba(0,0,0,0.10);
+}
 
 .subtitle {
   font-size: clamp(15px, 1.5vw, 18px);

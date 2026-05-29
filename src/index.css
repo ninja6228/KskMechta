@@ -10,34 +10,34 @@
 :root {
   /* Воздух · Вода · Лес */
 
-  /* Глубокая вода — основной */
-  --primary: #1a4262;
-  --primary-light: #2d6090;
-  --primary-dark: #0e2438;
-  --primary-faint: #d8eaf8;
+  /* Глубокий индиго — основной */
+  --primary: #322b65;
+  --primary-light: #4a3d90;
+  --primary-dark: #1e1840;
+  --primary-faint: #e8e4f8;
 
-  /* Небо */
-  --sky: #2878aa;
-  --sky-light: #5aa4ca;
+  /* Азур */
+  --sky: #3a8cc8;
+  --sky-light: #5aa8d8;
   --sky-pale: #c8e4f8;
 
-  /* Лес */
-  --forest: #1d4a30;
-  --forest-light: #3a7050;
-  --forest-pale: #d4eed8;
+  /* Лес (оставляем для совместимости) */
+  --forest: #2a3880;
+  --forest-light: #3d50a8;
+  --forest-pale: #dce4f8;
 
   /* Вода */
-  --water: #0e5878;
-  --water-pale: #c4dff0;
+  --water: #2858a0;
+  --water-pale: #c8daf8;
 
-  /* Акцент */
-  --accent: #2878aa;
-  --accent-light: #5aa4ca;
+  /* Акцент — индиго */
+  --accent: #322b65;
+  --accent-light: #4a3d90;
 
-  --text: #0e1e2e;
-  --text-muted: rgba(14,30,46,0.62);
+  --text: #0e1020;
+  --text-muted: rgba(14,16,32,0.60);
 
-  --bg: #d4eee6;
+  --bg: #d0daf4;
 
   /* Стекло */
   --glass-bg: rgba(255,255,255,0.82);
@@ -51,15 +51,16 @@ body {
   color: var(--text);
   line-height: 1.6;
   overflow-x: hidden;
-  /* Единый живой градиент на всю страницу */
+  /* Азур → Индиго — без зелёного */
   background: linear-gradient(135deg,
-    #9ec8b8 0%,
-    #5aaed4 18%,
-    #8ac6b8 35%,
-    #a2d48c 52%,
-    #4aa0cc 68%,
-    #84be98 84%,
-    #74b8d2 100%
+    #8ac8e8 0%,
+    #5ab0d8 14%,
+    #3a88c0 28%,
+    #2a5898 42%,
+    #322b65 56%,
+    #4a3d90 70%,
+    #6070c0 84%,
+    #88b8e0 100%
   );
   background-size: 400% 400%;
   background-attachment: fixed;
@@ -135,12 +136,17 @@ img {
   font-weight: 700;
   text-align: center;
   margin-bottom: 12px;
+  color: #fff;
+  text-shadow: 0 2px 18px rgba(0,0,0,0.18);
 }
-.section-title .highlight { color: var(--sky); }
+.section-title .highlight {
+  color: #322b65;
+  text-shadow: 0 0 24px rgba(255,255,255,0.55), 0 2px 10px rgba(0,0,0,0.12);
+}
 
 .section-subtitle {
   text-align: center;
-  color: var(--text-muted);
+  color: rgba(255,255,255,0.78);
   font-size: 15px;
   max-width: 540px;
   margin: 0 auto 56px;

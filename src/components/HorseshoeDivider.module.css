@@ -47,3 +47,21 @@
 .wrap:hover .shoe {
   color: #e0b83a;
 }
+
+@keyframes spinFull {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes spinFullFlipped {
+  from { transform: scaleY(-1) rotate(0deg); }
+  to   { transform: scaleY(-1) rotate(360deg); }
+}
+
+.shoe.spin {
+  animation: spinFull 0.7s cubic-bezier(0.34, 1.4, 0.64, 1) both;
+}
+
+.flipped .shoe.spinFlipped {
+  animation: spinFullFlipped 0.7s cubic-bezier(0.34, 1.4, 0.64, 1) both;
+}
