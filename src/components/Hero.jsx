@@ -46,7 +46,6 @@ export default function Hero() {
             Записаться на занятие
           </button>
           <a href="#programs" className="btn-glass">Выбрать программу</a>
-          <a href="#services" className="btn-glass">Все услуги</a>
         </div>
 
         <div className={styles.stats} ref={statsRef}>

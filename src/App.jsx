@@ -5,7 +5,6 @@ import Modal from './components/Modal'
 import Header from './components/Header'
 import Hero from './components/Hero'
 import Features from './components/Features'
-import Services from './components/Services'
 import Programs from './components/Programs'
 import Gallery from './components/Gallery'
 import Team from './components/Team'
@@ -26,8 +25,6 @@ function HomePage() {
         <HorseshoeDivider />
         <Features />
         <HorseshoeDivider flipped />
-        <Services />
-        <HorseshoeDivider />
         <Programs />
         <HorseshoeDivider flipped />
         <Gallery />

@@ -119,13 +119,13 @@ export default function TeamPage() {
                   Записаться
                 </button>
                 <a
-                  href="tel:+74951234567"
+                  href="tel:+79217234441"
                   className="btn-glass"
                   style={{ width: '100%', justifyContent: 'center', marginTop: 10 }}
                 >
                   Позвонить
                 </a>
-                <div className={styles.ctaPhone}>+7 (495) 123-45-67</div>
+                <div className={styles.ctaPhone}>+7 (921) 723-44-41</div>
                 <div className={styles.ctaHours}>Пн–Вс: 9:00 – 20:00</div>
               </div>
             </div>

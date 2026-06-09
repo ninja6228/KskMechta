@@ -19,8 +19,8 @@ const EMPTY_ERRORS = { name: '',  phone: '',  program: '' }
 const EMPTY_CUSTOM = { name: '', contact: '', programTitle: '', programDesc: '' }
 const EMPTY_CUSTOM_ERRORS = { name: '', contact: '', programTitle: '', programDesc: '' }
 
-const CLUB_PHONE = '+7 (495) 123-45-67'
-const CLUB_PHONE_HREF = 'tel:+74951234567'
+const CLUB_PHONE = '+7 (921) 723-44-41'
+const CLUB_PHONE_HREF = 'tel:+79217234441'
 const CLUB_EMAIL = 'mgs2010@yandex.ru'
 const CLUB_EMAIL_HREF = 'mailto:mgs2010@yandex.ru'
 

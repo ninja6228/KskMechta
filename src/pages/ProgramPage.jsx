@@ -118,13 +118,13 @@ export default function ProgramPage() {
               <div className={styles.ctaCard}>
                 <div className={styles.ctaPrice}>{program.price}</div>
                 <p className={styles.ctaNote}>Запись по телефону или онлайн</p>
-                <a href="tel:+74951234567" className="btn-glass accent" style={{ width: '100%', justifyContent: 'center' }}>
+                <a href="tel:+79217234441" className="btn-glass accent" style={{ width: '100%', justifyContent: 'center' }}>
                   Позвонить
                 </a>
                 <button className="btn-glass" style={{ width: '100%', justifyContent: 'center', marginTop: 10 }} onClick={() => openModal(id)}>
                   Оставить заявку
                 </button>
-                <div className={styles.ctaPhone}>+7 (495) 123-45-67</div>
+                <div className={styles.ctaPhone}>+7 (921) 723-44-41</div>
                 <div className={styles.ctaHours}>Пн–Вс: 9:00 – 20:00</div>
               </div>
             </div>

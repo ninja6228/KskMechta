@@ -4,7 +4,6 @@ import styles from './Header.module.css'
 
 const NAV_LINKS = [
   { label: 'О нас', href: '#features' },
-  { label: 'Услуги', href: '#services' },
   { label: 'Программы', href: '#programs' },
   { label: 'Команда', href: '#team' },
   { label: 'Отзывы', href: '#testimonials' },
@@ -59,7 +58,7 @@ export default function Header() {
         </nav>
 
         <div className={styles.actions}>
-          <a href="tel:+74951234567" className={styles.phone}>+7 (495) 123-45-67</a>
+          <a href="tel:+79217234441" className={styles.phone}>+7 (921) 723-44-41</a>
           <button className="btn-glass" onClick={() => { openModal(); setMenuOpen(false) }}>
             Записаться
           </button>

@@ -1,10 +1,17 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { TEAM } from '../data/team'
 import WalkingHorse from './WalkingHorse'
 import { WALKING_HORSE_BY_SECTION } from '../data/walkingHorsePlacements'
 import styles from './Team.module.css'
 
+const PAGE_SIZE = 3
+
 export default function Team() {
+  const [visible, setVisible] = useState(PAGE_SIZE)
+  const shown = TEAM.slice(0, visible)
+  const hasMore = visible < TEAM.length
+
   return (
     <section className={`section ${styles.section}`} id="team">
       <WalkingHorse {...WALKING_HORSE_BY_SECTION.team} />
@@ -17,7 +24,7 @@ export default function Team() {
         </p>
 
         <div className={styles.grid}>
-          {TEAM.map((m) => (
+          {shown.map((m) => (
             <Link key={m.id} to={`/team/${m.id}`} className={styles.card}>
               <div className={styles.cardTop} style={{ background: m.avatarGradient }}>
                 <span className={styles.avatar}>{m.emoji}</span>
@@ -43,6 +50,17 @@ export default function Team() {
             </Link>
           ))}
         </div>
+
+        {hasMore && (
+          <div className={styles.showMoreWrap}>
+            <button className="btn-glass" onClick={() => setVisible(v => v + PAGE_SIZE)}>
+              Показать ещё
+            </button>
+            <button className="btn-glass" onClick={() => setVisible(TEAM.length)}>
+              Показать всех
+            </button>
+          </div>
+        )}
       </div>
     </section>
   )

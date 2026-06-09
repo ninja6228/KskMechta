@@ -1,12 +1,21 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { PROGRAMS } from '../data/programs'
+import { PROGRAMS, CATEGORIES } from '../data/programs'
 import { useModal } from '../context/ModalContext'
 import WalkingHorse from './WalkingHorse'
 import { WALKING_HORSE_BY_SECTION } from '../data/walkingHorsePlacements'
 import styles from './Programs.module.css'
 
+const PAGE_SIZE = 3
+
 export default function Programs() {
   const { openModal, openCustomProgramModal } = useModal()
+  const [activeCategory, setActiveCategory] = useState(CATEGORIES[0].id)
+  const [visible, setVisible] = useState(PAGE_SIZE)
+
+  const filtered = PROGRAMS.filter(p => p.category === activeCategory)
+  const shown = filtered.slice(0, visible)
+  const hasMore = visible < filtered.length
 
   return (
     <section className={`section ${styles.section}`} id="programs">
@@ -19,8 +28,21 @@ export default function Programs() {
           Готовые форматы на любой вкус — выбирайте и записывайтесь онлайн
         </p>
 
+        {/* Category tabs */}
+        <div className={styles.tabs}>
+          {CATEGORIES.map(cat => (
+            <button
+              key={cat.id}
+              className={`${styles.tab} ${activeCategory === cat.id ? styles.tabActive : ''}`}
+              onClick={() => { setActiveCategory(cat.id); setVisible(PAGE_SIZE) }}
+            >
+              {cat.label}
+            </button>
+          ))}
+        </div>
+
         <div className={styles.grid}>
-          {PROGRAMS.map((p) => (
+          {shown.map((p) => (
             <div key={p.id} className={styles.card}>
               <div className={styles.cardTop}>
                 <div className="img-placeholder" style={{ height: '200px', fontSize: '64px' }}>
@@ -54,6 +76,17 @@ export default function Programs() {
               </div>
             </div>
           ))}
+
+          {hasMore && (
+            <div className={styles.showMoreWrap}>
+              <button className="btn-glass" onClick={() => setVisible(v => v + PAGE_SIZE)}>
+                Показать ещё
+              </button>
+              <button className="btn-glass" onClick={() => setVisible(filtered.length)}>
+                Показать все
+              </button>
+            </div>
+          )}
 
           <div className={`${styles.card} ${styles.cardCustom}`}>
             <div className={styles.cardCustomInner}>
