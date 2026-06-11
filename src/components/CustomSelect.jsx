@@ -1,24 +1,55 @@
 import { useState, useRef, useEffect } from 'react'
+import { createPortal } from 'react-dom'
 import styles from './CustomSelect.module.css'
 
 export default function CustomSelect({ options, placeholder = 'Выберите', value, onChange, hasError = false }) {
   const [open, setOpen] = useState(false)
-  const ref = useRef(null)
+  const [dropPos, setDropPos] = useState({ top: 0, left: 0, width: 0 })
+  const wrapRef = useRef(null)
+  const triggerRef = useRef(null)
+
+  const calcPos = () => {
+    if (!triggerRef.current) return
+    const r = triggerRef.current.getBoundingClientRect()
+    setDropPos({ top: r.bottom + 6, left: r.left, width: r.width })
+  }
 
   useEffect(() => {
-    const handler = (e) => { if (ref.current && !ref.current.contains(e.target)) setOpen(false) }
-    document.addEventListener('mousedown', handler)
-    return () => document.removeEventListener('mousedown', handler)
+    const close = (e) => {
+      if (wrapRef.current && !wrapRef.current.contains(e.target)) setOpen(false)
+    }
+    document.addEventListener('mousedown', close)
+    return () => document.removeEventListener('mousedown', close)
   }, [])
+
+  useEffect(() => {
+    if (!open) return
+    calcPos()
+    window.addEventListener('scroll', calcPos, true)
+    window.addEventListener('resize', calcPos)
+    return () => {
+      window.removeEventListener('scroll', calcPos, true)
+      window.removeEventListener('resize', calcPos)
+    }
+  }, [open])
 
   const selected = options.find(o => o.value === value)
 
+  const handleToggle = () => {
+    if (!open) calcPos()
+    setOpen(v => !v)
+  }
+
   return (
-    <div className={`${styles.wrap} ${open ? styles.open : ''} ${hasError ? styles.error : ''}`} ref={ref}>
+    <div
+      className={`${styles.wrap} ${open ? styles.open : ''} ${hasError ? styles.error : ''}`}
+      ref={wrapRef}
+    >
       <button
+        ref={triggerRef}
         type="button"
         className={styles.trigger}
-        onClick={() => setOpen(v => !v)}
+        onClick={handleToggle}
         aria-haspopup="listbox"
         aria-expanded={open}
       >
@@ -32,20 +63,25 @@ export default function CustomSelect({ options, placeholder = 'Выберите'
         </span>
       </button>
 
-      {open && (
-        <ul className={styles.dropdown} role="listbox">
+      {open && createPortal(
+        <ul
+          className={styles.dropdown}
+          role="listbox"
+          style={{ top: dropPos.top, left: dropPos.left, width: dropPos.width }}
+        >
           {options.map(o => (
             <li
               key={o.value}
               className={`${styles.option} ${o.value === value ? styles.optionActive : ''}`}
               role="option"
               aria-selected={o.value === value}
-              onClick={() => { onChange(o.value); setOpen(false) }}
+              onMouseDown={(e) => { e.preventDefault(); onChange(o.value); setOpen(false) }}
             >
               {o.label}
             </li>
           ))}
-        </ul>
+        </ul>,
+        document.body
       )}
     </div>
   )

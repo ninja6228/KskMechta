@@ -48,16 +48,13 @@
 .arrowUp { transform: rotate(180deg); }
 
 .dropdown {
-  position: absolute;
-  top: calc(100% + 6px);
-  left: 0;
-  right: 0;
+  position: fixed;
   background: #fff;
   border: 1px solid rgba(0,0,0,0.1);
   border-radius: 12px;
   overflow-y: auto;
   max-height: 220px;
-  z-index: 50;
+  z-index: 9999;
   list-style: none;
   box-shadow: 0 12px 40px rgba(0,0,0,0.12);
   animation: dropIn 0.15s ease;

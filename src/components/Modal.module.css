@@ -132,6 +132,22 @@
   padding-left: 2px;
 }
 
+.textareaFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 18px;
+}
+
+.charCount {
+  font-size: 11px;
+  color: rgba(26,46,32,0.35);
+  margin-left: auto;
+  transition: color 0.2s;
+}
+
+.charCountWarn { color: #c0392b; }
+
 .actions { margin-top: 4px; display: flex; }
 
 .error {

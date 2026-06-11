@@ -2,16 +2,13 @@ import { useEffect, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
 import { useModal } from '../context/ModalContext'
 import CustomSelect from './CustomSelect'
-import { sendTelegramNotification } from '../utils/telegram'
+import { sendEmailNotification } from '../utils/email'
+import { PROGRAMS } from '../data/programs'
 import styles from './Modal.module.css'
 
 const PROGRAM_OPTIONS = [
-  { value: 'first-meet',  label: 'Первое знакомство' },
-  { value: 'forest-walk', label: 'Лесная прогулка' },
-  { value: 'horse-trek',  label: 'Конный поход' },
-  { value: 'rider-school',label: 'Школа всадника' },
-  { value: 'corporate',   label: 'День в седле (корпоратив)' },
-  { value: 'other',       label: 'Иное / Не определились' },
+  ...PROGRAMS.map(p => ({ value: p.id, label: p.title })),
+  { value: 'other', label: 'Иное / Не определились' },
 ]
 
 const EMPTY_FIELDS = { name: '', phone: '', program: '' }
@@ -148,8 +145,8 @@ export default function Modal() {
     setLoading(true)
     setSendFailed(false)
     try {
-      const programLabel = PROGRAM_OPTIONS.find(o => o.value === fields.program)?.label || fields.program
-      await sendTelegramNotification({ name: fields.name, phone: fields.phone, program: programLabel })
+      const programLabel = PROGRAM_OPTIONS.find(o => o.value === fields.program)?.label ?? fields.program
+      await sendEmailNotification({ name: fields.name, phone: fields.phone, program: programLabel })
       setSent(true)
     } catch {
       setSendFailed(true)
@@ -165,7 +162,7 @@ export default function Modal() {
     setLoading(true)
     setSendFailed(false)
     try {
-      await sendTelegramNotification({
+      await sendEmailNotification({
         name: customFields.name.trim(),
         contact: customFields.contact.trim(),
         programTitle: customFields.programTitle.trim(),
@@ -289,12 +286,18 @@ export default function Modal() {
                   className={`${styles.input} ${styles.textarea} ${customErrors.programDesc ? styles.inputError : ''}`}
                   placeholder="Опишите формат, длительность, пожелания…"
                   rows={4}
+                  maxLength={500}
                   value={customFields.programDesc}
                   onChange={e => setCustomField('programDesc', e.target.value)}
                 />
-                {customErrors.programDesc && (
-                  <span className={styles.fieldError}>{customErrors.programDesc}</span>
-                )}
+                <div className={styles.textareaFooter}>
+                  {customErrors.programDesc && (
+                    <span className={styles.fieldError}>{customErrors.programDesc}</span>
+                  )}
+                  <span className={`${styles.charCount} ${customFields.programDesc.length >= 450 ? styles.charCountWarn : ''}`}>
+                    {customFields.programDesc.length}/500
+                  </span>
+                </div>
               </div>
 
               <div className={styles.field}>

@@ -42,7 +42,7 @@ export const PROGRAMS = [
   {
     id: 'date',
     category: 'events',
-    icon: '💑',
+    icon: '🐎',
     tag: 'Для двоих',
     tagColor: '#c05a8a',
     title: 'Свидание в «Мечте»',
@@ -67,7 +67,7 @@ export const PROGRAMS = [
     schedule: [
       { time: 'По договорённости', label: 'Будни и выходные' },
     ],
-    slides: ['💑', '🐎', '🌾', '🌸', '📸'],
+    slides: ['🌸', '🐎', '🌾', '🌸', '📸'],
     slideColors: ['#fce8f0', '#f8dde8', '#e8f4ee', '#fce4ec', '#f4e8f8'],
   },
   {

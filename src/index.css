@@ -140,8 +140,8 @@ img {
   text-shadow: 0 2px 18px rgba(0,0,0,0.18);
 }
 .section-title .highlight {
-  color: #f5c842;
-  text-shadow: 0 0 28px rgba(245,200,66,0.45), 0 2px 8px rgba(0,0,0,0.22);
+  color: #ffffff;
+  text-shadow: 0 0 28px rgba(255,255,255,0.35), 0 2px 8px rgba(0,0,0,0.22);
 }
 
 .section-subtitle {

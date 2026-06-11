@@ -111,17 +111,10 @@ export default function TeamPage() {
 
               <div className={styles.ctaCard}>
                 <p className={styles.ctaNote}>Хотите заниматься с {firstName}?</p>
-                <button
-                  className="btn-glass accent"
-                  style={{ width: '100%', justifyContent: 'center' }}
-                  onClick={() => openModal()}
-                >
-                  Записаться
-                </button>
                 <a
                   href="tel:+79217234441"
                   className="btn-glass"
-                  style={{ width: '100%', justifyContent: 'center', marginTop: 10 }}
+                  style={{ width: '100%', justifyContent: 'center' }}
                 >
                   Позвонить
                 </a>

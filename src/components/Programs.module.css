@@ -3,27 +3,6 @@
   position: relative;
 }
 
-.section::before {
-  content: '';
-  position: absolute;
-  right: 1%;
-  bottom: -20px;
-  width: 320px;
-  height: 320px;
-  background-color: var(--primary);
-  mask-image: url('/horse-jumping-outline-variant-svgrepo-com.svg');
-  mask-size: contain;
-  mask-repeat: no-repeat;
-  mask-position: center;
-  -webkit-mask-image: url('/horse-jumping-outline-variant-svgrepo-com.svg');
-  -webkit-mask-size: contain;
-  -webkit-mask-repeat: no-repeat;
-  -webkit-mask-position: center;
-  opacity: 0.07;
-  pointer-events: none;
-  user-select: none;
-  z-index: 0;
-}
 
 .showMoreWrap {
   display: flex;
