@@ -27,7 +27,11 @@ export default function Team() {
           {shown.map((m) => (
             <Link key={m.id} to={`/team/${m.id}`} className={styles.card}>
               <div className={styles.cardTop} style={{ background: m.avatarGradient }}>
-                <span className={styles.avatar}>{m.emoji}</span>
+                {m.photo ? (
+                  <img src={m.photo} alt={m.name} className={styles.avatarImg} />
+                ) : (
+                  <span className={styles.avatar}>{m.emoji}</span>
+                )}
                 <span className={styles.tag} style={{ background: m.tagColor }}>
                   {m.tag}
                 </span>

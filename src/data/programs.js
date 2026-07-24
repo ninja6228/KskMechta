@@ -6,7 +6,19 @@ export const CATEGORIES = [
   { id: 'beauty',  label: 'Красота и здоровье' },
 ]
 
-export const PROGRAMS = [
+const PROGRAM_PHOTOS = import.meta.glob('../imgs/program/**/*.{jpg,jpeg,png,webp}', {
+  eager: true,
+  import: 'default',
+})
+
+function photosFor(id) {
+  return Object.entries(PROGRAM_PHOTOS)
+    .filter(([path]) => path.includes(`/program/${id}/`))
+    .sort(([a], [b]) => a.localeCompare(b, undefined, { numeric: true }))
+    .map(([, url]) => url)
+}
+
+const PROGRAMS_DATA = [
   // ── Организация праздников ──────────────────────────────────────────
   {
     id: 'constructor',
@@ -793,4 +805,44 @@ export const PROGRAMS = [
     slides: ['🎨', '🐎', '🌿', '🖌️', '🌅'],
     slideColors: ['#f0e8f8', '#e8ddf0', '#f4eef8', '#ede4f4', '#e4ddf0'],
   },
+  {
+    id: 'barefoot-trail',
+    category: 'beauty',
+    icon: '👣',
+    tag: 'Тропа впечатлений',
+    tagColor: '#3a7a5a',
+    title: 'Босоногая тропа (тропа впечатлений)',
+    duration: '1 час',
+    price: '300 ₽ / час',
+    difficulty: 'Лёгкий',
+    groupSize: 'Для любых',
+    shortDesc: 'Больше 20 видов покрытий для незабываемых ощущений — можжевеловые шишки, кедровые скорлупки, морские ракушки, галька и вулканический песок',
+    fullDesc: [
+      'Босоногая тропа в Череповце! Больше 20 видов покрытий для ваших незабываемых впечатлений. Можжевеловые шишки, кедровые скорлупки, морские ракушки, речная галька, вулканический песок и то, что вы даже не ожидали.',
+      'Тропа расположена в лесной части конно-спортивного комплекса «Мечта». Работает ежедневно с 9:00 до 19:00.',
+      'Стоимость — 300 ₽ / час.',
+    ],
+    includes: [
+      'Более 20 видов природных покрытий',
+      'Можжевеловые шишки и кедровые скорлупки',
+      'Морские ракушки и речная галька',
+      'Вулканический песок и другие фактуры',
+      'Лесная часть комплекса «Мечта»',
+      'Ежедневно с 9:00 до 19:00',
+    ],
+    schedule: [
+      { time: '9:00 – 19:00', label: 'Ежедневно' },
+    ],
+    slides: ['👣', '🌲', '🐚', '🪨', '✨'],
+    slideColors: ['#e8f4ee', '#d8f0e4', '#e4f4ec', '#e0f0e8', '#e8f8f0'],
+  },
 ]
+
+export const PROGRAMS = PROGRAMS_DATA.map((p) => {
+  const photos = photosFor(p.id)
+  return {
+    ...p,
+    photos,
+    cover: photos[0] ?? null,
+  }
+})

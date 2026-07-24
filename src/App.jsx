@@ -12,6 +12,7 @@ import Testimonials from './components/Testimonials'
 import HorseshoeDivider from './components/HorseshoeDivider'
 import Footer from './components/Footer'
 import ScrollToTop from './components/ScrollToTop'
+import Seo, { buildSportsActivityLocationLd } from './components/Seo'
 import ProgramPage from './pages/ProgramPage'
 import ServicePage from './pages/ServicePage'
 import TeamPage from './pages/TeamPage'
@@ -19,6 +20,11 @@ import TeamPage from './pages/TeamPage'
 function HomePage() {
   return (
     <>
+      <Seo
+        title="КСК Мечта — конно-спортивный клуб в Череповце"
+        path="/"
+        jsonLd={buildSportsActivityLocationLd()}
+      />
       <Header />
       <main>
         <Hero />

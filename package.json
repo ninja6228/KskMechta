@@ -5,8 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
-    "build:gh": "cross-env GH_PAGES=true vite build && node scripts/postbuild-ghpages.js",
+    "build": "node scripts/generate-sitemap.js && vite build",
+    "build:gh": "node scripts/generate-sitemap.js && cross-env GH_PAGES=true vite build && node scripts/postbuild-ghpages.js",
+    "sitemap": "node scripts/generate-sitemap.js",
     "preview": "vite preview",
     "preview:gh": "npm run build:gh && cross-env GH_PAGES=true VITE_PREVIEW_GH=true vite preview",
     "deploy": "npm run build:gh && gh-pages -d dist",

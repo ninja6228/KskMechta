@@ -1,4 +1,19 @@
-export const TEAM = [
+const TEAM_PHOTOS = import.meta.glob('../imgs/team/*.{jpg,jpeg,png,webp}', {
+  eager: true,
+  import: 'default',
+})
+
+function photoFor(id) {
+  return (
+    TEAM_PHOTOS[`../imgs/team/${id}.jpg`] ??
+    TEAM_PHOTOS[`../imgs/team/${id}.jpeg`] ??
+    TEAM_PHOTOS[`../imgs/team/${id}.png`] ??
+    TEAM_PHOTOS[`../imgs/team/${id}.webp`] ??
+    null
+  )
+}
+
+const TEAM_DATA = [
   {
     id: 'khmeleva',
     emoji: '👩‍🏫',
@@ -124,23 +139,6 @@ export const TEAM = [
     ],
     quote: '',
     fullDesc: 'Анна Сергеевна пользуется заслуженным авторитетом среди своих воспитанников. Юные спортсмены высоко ценят энергичность тренера, активное участие в делах спортивной команды и использование личного спортивного опыта. Подготовленные ею спортсмены являются победителями и призёрами соревнований различного уровня.',
-  },
-  {
-    id: 'kulik',
-    emoji: '🥇',
-    avatarGradient: 'linear-gradient(135deg, #e4f0f8 0%, #c4ddf0 100%)',
-    tag: 'Тренер по конкуру',
-    tagColor: '#1a6a90',
-    name: 'Кулик Вадим Николаевич',
-    shortBio: 'Профессиональный спортсмен и тренер в направлении конкур. Мастер спорта СССР',
-    experience: '',
-    specialization: ['Конкур'],
-    education: '',
-    achievements: [
-      'Мастер спорта СССР по конному спорту',
-    ],
-    quote: '',
-    fullDesc: 'Профессиональный спортсмен и тренер в направлении конкур. Мастер спорта СССР.',
   },
   {
     id: 'senatorova',
@@ -280,34 +278,10 @@ export const TEAM = [
     quote: 'На конюшне я занимаюсь всем. Потому как по жизни руководствуюсь принципом — «Помоги ближнему своему».',
     fullDesc: 'Незаменимый конюх и сертифицированный триммер КСК «Мечта». Знает каждую лошадь клуба. Опыт работы с лошадьми — более 20 лет.',
   },
-  {
-    id: 'kuklin',
-    emoji: '🐴',
-    avatarGradient: 'linear-gradient(135deg, #ddeef8 0%, #c4ddf0 100%)',
-    tag: 'Команда',
-    tagColor: '#2a5a7a',
-    name: 'Куклин Иван Вячеславович',
-    shortBio: 'Сотрудник КСК «Мечта»',
-    experience: '',
-    specialization: [],
-    education: '',
-    achievements: [],
-    quote: '',
-    fullDesc: 'Сотрудник КСК «Мечта».',
-  },
-  {
-    id: 'elesina',
-    emoji: '🌱',
-    avatarGradient: 'linear-gradient(135deg, #e8f4ee 0%, #cce8d8 100%)',
-    tag: 'Ассистент инструктора',
-    tagColor: '#3a7a5a',
-    name: 'Елесина Валерия',
-    shortBio: 'Ассистент инструктора по адаптивной верховой езде',
-    experience: '',
-    specialization: ['Адаптивная верховая езда'],
-    education: '',
-    achievements: [],
-    quote: '',
-    fullDesc: 'Ассистент инструктора по адаптивной верховой езде КСК «Мечта».',
-  },
 ]
+
+export const TEAM = TEAM_DATA.map((m) => ({
+  ...m,
+  photo: photoFor(m.id),
+}))
+

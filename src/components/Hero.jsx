@@ -3,7 +3,7 @@ import { useSyncedCountUp } from '../hooks/useCountUp'
 import StatCounter from './StatCounter'
 import WalkingHorse from './WalkingHorse'
 import { WALKING_HORSE_BY_SECTION } from '../data/walkingHorsePlacements'
-import horseSvg from '../imgs/horse.svg'
+import logoSvg from '../imgs/logo.svg'
 import styles from './Hero.module.css'
 
 export default function Hero() {
@@ -26,7 +26,7 @@ export default function Hero() {
         <div className={styles.decorOrbit3} />
         <div className={styles.decorGlow} />
         <div className={styles.decorEmblem}>
-          <img src={horseSvg} alt="" />
+          <img src={logoSvg} alt="" />
         </div>
       </div>
       <div className={`container ${styles.content}`}>

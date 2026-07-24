@@ -73,6 +73,20 @@
 .cardTop {
   position: relative;
   height: 200px;
+  overflow: hidden;
+  background: #e8f0f6;
+}
+
+.cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.35s ease;
+}
+
+.card:hover .cover {
+  transform: scale(1.05);
 }
 
 .tag {

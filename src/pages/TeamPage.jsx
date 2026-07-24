@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { useParams, useNavigate, Link } from 'react-router-dom'
 import { TEAM } from '../data/team'
 import PageHeroDecor from '../components/PageHeroDecor'
+import Seo, { buildBreadcrumbLd } from '../components/Seo'
 import { useModal } from '../context/ModalContext'
 import styles from './TeamPage.module.css'
 
@@ -16,6 +17,7 @@ export default function TeamPage() {
   if (!member) {
     return (
       <div className={styles.notFound}>
+        <Seo title="Сотрудник не найден" path={`/team/${id}`} noindex />
         <h1>Сотрудник не найден</h1>
         <Link to="/" className="btn-glass">← На главную</Link>
       </div>
@@ -27,6 +29,18 @@ export default function TeamPage() {
 
   return (
     <div className={styles.page} key={id}>
+      <Seo
+        title={`${member.name} — ${member.tag}`}
+        description={member.shortBio || `${member.name}, ${member.tag} КСК «Мечта»`}
+        path={`/team/${member.id}`}
+        image={member.photo || undefined}
+        type="profile"
+        jsonLd={buildBreadcrumbLd([
+          { name: 'Главная', path: '/' },
+          { name: 'Команда', path: '/#team' },
+          { name: member.name, path: `/team/${member.id}` },
+        ])}
+      />
 
       {/* Header */}
       <header className={styles.header}>
@@ -44,28 +58,38 @@ export default function TeamPage() {
       <section className={styles.hero} style={{ background: member.avatarGradient }}>
         <PageHeroDecor />
         <div className={`container ${styles.heroInner}`}>
-          <span className={styles.heroEmoji}>{member.emoji}</span>
+          {member.photo ? (
+            <img src={member.photo} alt={member.name} className={styles.heroPhoto} />
+          ) : (
+            <span className={styles.heroEmoji}>{member.emoji}</span>
+          )}
           <span className={styles.tag} style={{ background: member.tagColor }}>
             {member.tag}
           </span>
           <h1 className={styles.heroTitle}>{member.name}</h1>
           <p className={styles.heroSub}>{member.shortBio}</p>
           <div className={styles.features}>
-            <div className={styles.featureCard}>
-              <span className={styles.featureIcon}>⏱</span>
-              <span className={styles.featureValue}>{member.experience}</span>
-              <span className={styles.featureLabel}>Опыт</span>
-            </div>
-            <div className={styles.featureCard}>
-              <span className={styles.featureIcon}>🎯</span>
-              <span className={styles.featureValue}>{member.specialization.length}</span>
-              <span className={styles.featureLabel}>Направления</span>
-            </div>
-            <div className={styles.featureCard}>
-              <span className={styles.featureIcon}>🏆</span>
-              <span className={styles.featureValue}>{member.achievements.length}</span>
-              <span className={styles.featureLabel}>Достижения</span>
-            </div>
+            {member.experience && (
+              <div className={styles.featureCard}>
+                <span className={styles.featureIcon}>⏱</span>
+                <span className={styles.featureValue}>{member.experience}</span>
+                <span className={styles.featureLabel}>Опыт</span>
+              </div>
+            )}
+            {member.specialization.length > 0 && (
+              <div className={styles.featureCard}>
+                <span className={styles.featureIcon}>🎯</span>
+                <span className={styles.featureValue}>{member.specialization.length}</span>
+                <span className={styles.featureLabel}>Направления</span>
+              </div>
+            )}
+            {member.achievements.length > 0 && (
+              <div className={styles.featureCard}>
+                <span className={styles.featureIcon}>🏆</span>
+                <span className={styles.featureValue}>{member.achievements.length}</span>
+                <span className={styles.featureLabel}>Достижения</span>
+              </div>
+            )}
           </div>
         </div>
       </section>
@@ -80,19 +104,25 @@ export default function TeamPage() {
               <h2 className={styles.colTitle}>О специалисте</h2>
               <p className={styles.descPara}>{member.fullDesc}</p>
 
-              <blockquote className={styles.quote}>
-                «{member.quote}»
-              </blockquote>
+              {member.quote && (
+                <blockquote className={styles.quote}>
+                  «{member.quote}»
+                </blockquote>
+              )}
 
-              <h2 className={styles.colTitle}>Достижения</h2>
-              <ul className={styles.achList}>
-                {member.achievements.map((a, i) => (
-                  <li key={i} className={styles.achItem}>
-                    <span className={styles.achCheck}>✓</span>
-                    <span>{a}</span>
-                  </li>
-                ))}
-              </ul>
+              {member.achievements.length > 0 && (
+                <>
+                  <h2 className={styles.colTitle}>Достижения</h2>
+                  <ul className={styles.achList}>
+                    {member.achievements.map((a, i) => (
+                      <li key={i} className={styles.achItem}>
+                        <span className={styles.achCheck}>✓</span>
+                        <span>{a}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </>
+              )}
             </div>
 
             {/* Right sidebar */}
@@ -105,8 +135,12 @@ export default function TeamPage() {
                   ))}
                 </div>
 
-                <h3 className={styles.includesTitle} style={{ marginTop: 24 }}>Образование</h3>
-                <p className={styles.education}>{member.education}</p>
+                {member.education && (
+                  <>
+                    <h3 className={styles.includesTitle} style={{ marginTop: 24 }}>Образование</h3>
+                    <p className={styles.education}>{member.education}</p>
+                  </>
+                )}
               </div>
 
               <div className={styles.ctaCard}>
@@ -135,7 +169,11 @@ export default function TeamPage() {
           <div className={styles.relatedGrid}>
             {others.map(m => (
               <Link key={m.id} to={`/team/${m.id}`} className={styles.relatedCard}>
-                <span className={styles.relatedIcon}>{m.emoji}</span>
+                {m.photo ? (
+                  <img src={m.photo} alt={m.name} className={styles.relatedPhoto} />
+                ) : (
+                  <span className={styles.relatedIcon}>{m.emoji}</span>
+                )}
                 <div>
                   <div className={styles.relatedName}>{m.name}</div>
                   <div className={styles.relatedDesc}>{m.tag}</div>

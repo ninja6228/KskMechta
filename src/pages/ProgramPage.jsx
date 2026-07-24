@@ -3,6 +3,7 @@ import { useParams, useNavigate, Link } from 'react-router-dom'
 import { PROGRAMS } from '../data/programs'
 import SlideshowComp from '../components/SlideshowComp'
 import PageHeroDecor from '../components/PageHeroDecor'
+import Seo, { buildBreadcrumbLd } from '../components/Seo'
 import { useModal } from '../context/ModalContext'
 import styles from './ProgramPage.module.css'
 
@@ -17,15 +18,30 @@ export default function ProgramPage() {
   if (!program) {
     return (
       <div className={styles.notFound}>
+        <Seo title="Программа не найдена" path={`/program/${id}`} noindex />
         <h1>Программа не найдена</h1>
       </div>
     )
   }
 
   const others = PROGRAMS.filter(p => p.id !== id).slice(0, 3)
+  const description = program.shortDesc
+  const image = program.cover || undefined
 
   return (
     <div className={styles.page} key={id}>
+      <Seo
+        title={program.title}
+        description={`${program.title} — ${description}`}
+        path={`/program/${program.id}`}
+        image={image}
+        type="article"
+        jsonLd={buildBreadcrumbLd([
+          { name: 'Главная', path: '/' },
+          { name: 'Программы', path: '/#programs' },
+          { name: program.title, path: `/program/${program.id}` },
+        ])}
+      />
       {/* Back header */}
       <header className={styles.header}>
         <div className={`container ${styles.headerInner}`}>
@@ -75,7 +91,11 @@ export default function ProgramPage() {
       {/* Slideshow */}
       <section className={styles.slideshowSection}>
         <div className="container">
-          <SlideshowComp slides={program.slides} slideColors={program.slideColors} />
+          <SlideshowComp
+            images={program.photos}
+            slides={program.slides}
+            slideColors={program.slideColors}
+          />
         </div>
       </section>
 
@@ -141,7 +161,11 @@ export default function ProgramPage() {
           <div className={styles.othersGrid}>
             {others.map(p => (
               <Link key={p.id} to={`/program/${p.id}`} className={styles.otherCard}>
-                <div className={styles.otherIcon}>{p.icon}</div>
+                {p.cover ? (
+                  <img src={p.cover} alt="" className={styles.otherPhoto} />
+                ) : (
+                  <div className={styles.otherIcon}>{p.icon}</div>
+                )}
                 <div>
                   <div className={styles.otherTitle}>{p.title}</div>
                   <div className={styles.otherMeta}>{p.duration} · {p.price}</div>

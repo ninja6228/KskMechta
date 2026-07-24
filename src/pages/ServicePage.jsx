@@ -3,6 +3,7 @@ import { useParams, useNavigate, Link } from 'react-router-dom'
 import { SERVICES } from '../data/services'
 import SlideshowComp from '../components/SlideshowComp'
 import PageHeroDecor from '../components/PageHeroDecor'
+import Seo, { buildBreadcrumbLd } from '../components/Seo'
 import { useModal } from '../context/ModalContext'
 import styles from './ServicePage.module.css'
 
@@ -17,6 +18,7 @@ export default function ServicePage() {
   if (!service) {
     return (
       <div className={styles.notFound}>
+        <Seo title="Услуга не найдена" path={`/service/${id}`} noindex />
         <h1>Услуга не найдена</h1>
       </div>
     )
@@ -27,6 +29,16 @@ export default function ServicePage() {
 
   return (
     <div className={styles.page} key={id}>
+      <Seo
+        title={service.title}
+        description={service.shortDesc || `${service.title} — КСК «Мечта»`}
+        path={`/service/${service.id}`}
+        type="article"
+        jsonLd={buildBreadcrumbLd([
+          { name: 'Главная', path: '/' },
+          { name: service.title, path: `/service/${service.id}` },
+        ])}
+      />
 
       {/* Header */}
       <header className={styles.header}>

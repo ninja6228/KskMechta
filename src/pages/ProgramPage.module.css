@@ -459,6 +459,15 @@
 
 .otherIcon { font-size: 32px; flex-shrink: 0; }
 
+.otherPhoto {
+  width: 56px;
+  height: 56px;
+  border-radius: 12px;
+  object-fit: cover;
+  flex-shrink: 0;
+  background: #e8f0f6;
+}
+
 .otherTitle {
   font-size: 15px;
   font-weight: 700;

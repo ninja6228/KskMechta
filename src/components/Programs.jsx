@@ -45,9 +45,13 @@ export default function Programs() {
           {shown.map((p) => (
             <div key={p.id} className={styles.card}>
               <div className={styles.cardTop}>
-                <div className="img-placeholder" style={{ height: '200px', fontSize: '64px' }}>
-                  {p.icon}
-                </div>
+                {p.cover ? (
+                  <img src={p.cover} alt={p.title} className={styles.cover} />
+                ) : (
+                  <div className="img-placeholder" style={{ height: '200px', fontSize: '64px' }}>
+                    {p.icon}
+                  </div>
+                )}
                 <span className={styles.tag}>{p.tag}</span>
               </div>
               <div className={styles.cardBody}>
