@@ -52,7 +52,9 @@ export default function ProgramPage() {
             <img src="https://kskmechta.ru/images/icons/logo.svg" alt="КСК Мечта" draggable={false} />
             <span>КСК Мечта</span>
           </Link>
+          {/* Кнопка записи временно скрыта
           <button className="btn-glass accent" onClick={() => openModal(id)}>Записаться</button>
+          */}
         </div>
       </header>
 
@@ -141,9 +143,11 @@ export default function ProgramPage() {
                 <a href="tel:+79217234441" className="btn-glass accent" style={{ width: '100%', justifyContent: 'center' }}>
                   Позвонить
                 </a>
+                {/* Кнопка «Оставить заявку» временно скрыта
                 <button className="btn-glass" style={{ width: '100%', justifyContent: 'center', marginTop: 10 }} onClick={() => openModal(id)}>
                   Оставить заявку
                 </button>
+                */}
                 <div className={styles.ctaPhone}>+7 (921) 723-44-41</div>
                 <div className={styles.ctaHours}>Пн–Вс: 9:00 – 20:00</div>
               </div>

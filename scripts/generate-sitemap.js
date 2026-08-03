@@ -24,12 +24,16 @@ const team = [
 const services = [
   'corporate', 'kids', 'tourism', 'rental', 'lessons', 'photo', 'holidays', 'individual',
 ]
+const products = [
+  'futbolki-daniila',
+]
 
 const urls = [
   { loc: '/', priority: '1.0', changefreq: 'weekly' },
   ...programs.map((id) => ({ loc: `/program/${id}`, priority: '0.8', changefreq: 'monthly' })),
   ...team.map((id) => ({ loc: `/team/${id}`, priority: '0.7', changefreq: 'monthly' })),
   ...services.map((id) => ({ loc: `/service/${id}`, priority: '0.7', changefreq: 'monthly' })),
+  ...products.map((id) => ({ loc: `/product/${id}`, priority: '0.7', changefreq: 'monthly' })),
 ]
 
 const body = urls.map((u) => `  <url>

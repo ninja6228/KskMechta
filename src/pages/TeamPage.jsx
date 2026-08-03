@@ -50,7 +50,9 @@ export default function TeamPage() {
             <img src="https://kskmechta.ru/images/icons/logo.svg" alt="КСК Мечта" draggable={false} />
             <span>КСК Мечта</span>
           </Link>
+          {/* Кнопка записи временно скрыта
           <button className="btn-glass accent" onClick={() => openModal()}>Записаться</button>
+          */}
         </div>
       </header>
 

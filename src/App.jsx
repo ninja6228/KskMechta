@@ -5,7 +5,8 @@ import Modal from './components/Modal'
 import Header from './components/Header'
 import Hero from './components/Hero'
 import Features from './components/Features'
-import Programs from './components/Programs'
+// import Programs from './components/Programs' // временно скрыто
+import Products from './components/Products'
 import Gallery from './components/Gallery'
 import Team from './components/Team'
 import Testimonials from './components/Testimonials'
@@ -14,6 +15,7 @@ import Footer from './components/Footer'
 import ScrollToTop from './components/ScrollToTop'
 import Seo, { buildSportsActivityLocationLd } from './components/Seo'
 import ProgramPage from './pages/ProgramPage'
+import ProductPage from './pages/ProductPage'
 import ServicePage from './pages/ServicePage'
 import TeamPage from './pages/TeamPage'
 
@@ -31,8 +33,12 @@ function HomePage() {
         <HorseshoeDivider />
         <Features />
         <HorseshoeDivider flipped />
+        {/* Раздел «Популярные программы» временно скрыт
         <Programs />
         <HorseshoeDivider flipped />
+        */}
+        <Products />
+        <HorseshoeDivider />
         <Gallery />
         <HorseshoeDivider />
         <Team />
@@ -53,6 +59,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/program/:id" element={<ProgramPage />} />
+          <Route path="/product/:id" element={<ProductPage />} />
           <Route path="/service/:id" element={<ServicePage />} />
           <Route path="/team/:id" element={<TeamPage />} />
         </Routes>

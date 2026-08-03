@@ -53,7 +53,8 @@ export default function CustomSelect({ options, placeholder = 'Выберите'
         aria-haspopup="listbox"
         aria-expanded={open}
       >
-        <span className={selected ? styles.selectedText : styles.placeholder}>
+        <span className={`${styles.value} ${selected ? styles.selectedText : styles.placeholder}`}>
+          {selected?.dot && <span className={styles.dot} style={{ background: selected.dot }} />}
           {selected ? selected.label : placeholder}
         </span>
         <span className={`${styles.arrow} ${open ? styles.arrowUp : ''}`}>
@@ -77,6 +78,7 @@ export default function CustomSelect({ options, placeholder = 'Выберите'
               aria-selected={o.value === value}
               onMouseDown={(e) => { e.preventDefault(); onChange(o.value); setOpen(false) }}
             >
+              {o.dot && <span className={styles.dot} style={{ background: o.dot }} />}
               {o.label}
             </li>
           ))}

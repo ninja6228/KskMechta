@@ -43,12 +43,14 @@ export default function Hero() {
           и незабываемых приключений под открытым небом
         </p>
 
+        {/* Кнопки записи и выбора программы временно скрыты
         <div className={styles.ctas}>
           <button className="btn-glass accent" onClick={() => openModal()}>
             Записаться на занятие
           </button>
           <a href="#programs" className="btn-glass">Выбрать программу</a>
         </div>
+        */}
 
         <div className={styles.stats} ref={statsRef}>
           <div className={styles.stat}>

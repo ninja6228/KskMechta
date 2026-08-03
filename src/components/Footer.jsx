@@ -33,7 +33,7 @@ export default function Footer() {
             <h4 className={styles.colTitle}>Навигация</h4>
             <ul className={styles.list}>
               <li><a href="#features">О клубе</a></li>
-              <li><a href="#programs">Программы</a></li>
+              {/* <li><a href="#programs">Программы</a></li> временно скрыто */}
               <li><a href="#team">Команда</a></li>
               <li><a href="#gallery">Галерея</a></li>
               <li><a href="#testimonials">Отзывы</a></li>
@@ -44,14 +44,16 @@ export default function Footer() {
           <div className={styles.col}>
             <h4 className={styles.colTitle}>Запись</h4>
             <p className={styles.ctaText}>
-              Хотите записаться на занятие или узнать стоимость? Оставьте заявку — и мы скоро с вами свяжемся.
+              Хотите узнать стоимость? Позвоните нам — и мы всё расскажем.
             </p>
+            {/* Кнопка записи временно скрыта
             <button
               className={`btn-glass accent ${styles.ctaBtn}`}
               onClick={() => openModal()}
             >
               Записаться на занятие
             </button>
+            */}
             <a href="tel:+79217234441" className={styles.ctaPhone}>
               +7 (921) 723-44-41
             </a>
