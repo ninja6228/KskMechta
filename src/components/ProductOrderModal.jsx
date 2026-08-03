@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
+import { Link } from 'react-router-dom'
 import CustomSelect from './CustomSelect'
 import styles from './ProductOrderModal.module.css'
 
@@ -54,6 +55,8 @@ export default function ProductOrderModal({ product, open, onClose }) {
   const [configError, setConfigError] = useState('')
   const [contact, setContact] = useState(EMPTY_CONTACT)
   const [contactErrors, setContactErrors] = useState(EMPTY_CONTACT)
+  const [agree, setAgree] = useState({ pdn: false, offer: false })
+  const [agreeError, setAgreeError] = useState('')
   const [card, setCard] = useState(EMPTY_CARD)
   const [cardErrors, setCardErrors] = useState(EMPTY_CARD)
   const [loading, setLoading] = useState(false)
@@ -67,6 +70,8 @@ export default function ProductOrderModal({ product, open, onClose }) {
       setConfigError('')
       setContact(EMPTY_CONTACT)
       setContactErrors(EMPTY_CONTACT)
+      setAgree({ pdn: false, offer: false })
+      setAgreeError('')
       setCard(EMPTY_CARD)
       setCardErrors(EMPTY_CARD)
       setLoading(false)
@@ -125,6 +130,11 @@ export default function ProductOrderModal({ product, open, onClose }) {
     if (contactErrors[key]) setContactErrors(prev => ({ ...prev, [key]: '' }))
   }
 
+  const toggleAgree = (key) => {
+    setAgree(prev => ({ ...prev, [key]: !prev[key] }))
+    if (agreeError) setAgreeError('')
+  }
+
   const setCardField = (key, value) => {
     setCard(prev => ({ ...prev, [key]: value }))
     if (cardErrors[key]) setCardErrors(prev => ({ ...prev, [key]: '' }))
@@ -150,7 +160,10 @@ export default function ProductOrderModal({ product, open, onClose }) {
   }
 
   const goToPayment = () => {
-    if (!validateContact()) return
+    const okContact = validateContact()
+    const okAgree = agree.pdn && agree.offer
+    if (!okAgree) setAgreeError('Для оформления заказа необходимо согласие')
+    if (!okContact || !okAgree) return
     setStep('payment')
   }
 
@@ -364,6 +377,26 @@ export default function ProductOrderModal({ product, open, onClose }) {
                   {contactErrors.address && <span className={styles.fieldError}>{contactErrors.address}</span>}
                 </div>
               )}
+
+              <div className={styles.agree}>
+                <label className={styles.check}>
+                  <input type="checkbox" checked={agree.pdn} onChange={() => toggleAgree('pdn')} />
+                  <span>
+                    Согласен на обработку{' '}
+                    <Link to="/legal/privacy" target="_blank" rel="noopener noreferrer">персональных данных</Link>
+                  </span>
+                </label>
+                <label className={styles.check}>
+                  <input type="checkbox" checked={agree.offer} onChange={() => toggleAgree('offer')} />
+                  <span>
+                    Принимаю условия{' '}
+                    <Link to="/legal/offer" target="_blank" rel="noopener noreferrer">публичной оферты</Link>
+                    {' '}и{' '}
+                    <Link to="/legal/delivery" target="_blank" rel="noopener noreferrer">возврата</Link>
+                  </span>
+                </label>
+                {agreeError && <span className={styles.fieldError}>{agreeError}</span>}
+              </div>
 
               <div className={styles.payActions}>
                 <button

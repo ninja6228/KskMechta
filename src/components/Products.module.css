@@ -5,7 +5,8 @@
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 380px));
+  justify-content: center;
   gap: 24px;
 }
 
@@ -104,22 +105,5 @@
   gap: 10px;
 }
 
-/* Одна карточка — не растягиваем на всю ширину сетки */
-.grid > .card {
-  max-width: 380px;
-}
-
-@media (max-width: 900px) {
-  .grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 560px) {
-  .grid {
-    grid-template-columns: 1fr;
-  }
-  .grid > .card {
-    max-width: 100%;
-  }
-}
+/* Сетка адаптивная за счёт auto-fit: колонки 300–380px, группа по центру.
+   Одна карточка → одна колонка по центру; больше карточек → аккуратный ряд. */

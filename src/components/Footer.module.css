@@ -197,9 +197,38 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 20px;
   font-size: 13px;
   color: rgba(255,255,255,0.28);
 }
+
+.requisites {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 16px;
+  line-height: 1.6;
+}
+
+.reqName {
+  color: rgba(255,255,255,0.5);
+  font-weight: 600;
+}
+
+.legalLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  justify-content: flex-end;
+}
+
+.legalLinks a {
+  color: rgba(255,255,255,0.42);
+  text-decoration: none;
+  transition: color 0.2s;
+  white-space: nowrap;
+}
+
+.legalLinks a:hover { color: #fff; }
 
 .bottomLinks {
   display: flex;
@@ -221,4 +250,6 @@
 @media (max-width: 600px) {
   .top { grid-template-columns: 1fr; gap: 32px; }
   .bottom { flex-direction: column; gap: 16px; text-align: center; }
+  .requisites { justify-content: center; }
+  .legalLinks { justify-content: center; }
 }

@@ -1,47 +1,14 @@
-const ACCESS_KEY = '77c0a9ed-1d65-41c3-8f0c-299ef18be037'
-const API_URL = 'https://api.web3forms.com/submit'
-
-export async function sendEmailNotification({ name, phone, program, programTitle, programDesc, contact }) {
-  const isCustom = Boolean(programTitle || programDesc)
-
-  const now = new Date().toLocaleString('ru-RU', {
-    timeZone: 'Europe/Moscow',
-    day: '2-digit', month: '2-digit', year: 'numeric',
-    hour: '2-digit', minute: '2-digit',
-  })
-
-  const subject = isCustom
-    ? `КСК Мечта — Своя программа от ${name}`
-    : `КСК Мечта — Новая заявка от ${name}`
-
-  const message = isCustom
-    ? [
-        '🐎 КСК «МЕЧТА» — ЗАПРОС СВОЕЙ ПРОГРАММЫ',
-        '─────────────────────────────',
-        `👤 Имя:       ${name}`,
-        `📬 Контакт:   ${contact}`,
-        `🏇 Программа: ${programTitle}`,
-        `📝 Описание:  ${programDesc}`,
-        '─────────────────────────────',
-        `🕐 ${now} (МСК)`,
-      ].join('\n')
-    : [
-        '🐎 КСК «МЕЧТА» — НОВАЯ ЗАЯВКА НА ЗАНЯТИЕ',
-        '─────────────────────────────',
-        `👤 Имя:       ${name}`,
-        `📞 Телефон:   ${phone}`,
-        ...(program ? [`🏇 Программа: ${program}`] : []),
-        '─────────────────────────────',
-        `🕐 ${now} (МСК)`,
-      ].join('\n')
-
-  const res = await fetch(API_URL, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-    body: JSON.stringify({ access_key: ACCESS_KEY, subject, message }),
-  })
-
-  const data = await res.json()
-  if (!data.success) throw new Error(data.message || 'Web3Forms error')
-  return data
+/**
+ * Отправка заявок с сайта.
+ *
+ * Web3Forms отключён: данные россиян не должны уходить на зарубежный сервис
+ * (ч. 5 ст. 18 152-ФЗ — локализация ПДн в РФ).
+ *
+ * TODO: подключить российский backend/сервис приёма заявок и реализовать
+ * отправку здесь. До тех пор функция сообщает, что отправка не настроена —
+ * форма записи показывает пользователю телефон/почту для связи.
+ */
+// eslint-disable-next-line no-unused-vars
+export async function sendEmailNotification(payload) {
+  throw new Error('Отправка заявок пока не настроена')
 }

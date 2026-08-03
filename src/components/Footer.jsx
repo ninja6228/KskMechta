@@ -1,4 +1,6 @@
+import { Link } from 'react-router-dom'
 import { useModal } from '../context/ModalContext'
+import { COMPANY } from '../data/company'
 import styles from './Footer.module.css'
 
 export default function Footer() {
@@ -83,6 +85,21 @@ export default function Footer() {
               </li>
             </ul>
           </div>
+        </div>
+
+        {/* Нижняя панель: реквизиты и документы */}
+        <div className={styles.bottom}>
+          <div className={styles.requisites}>
+            <span className={styles.reqName}>{COMPANY.legalName}</span>
+            <span>ИНН {COMPANY.inn}</span>
+            <span>{COMPANY.ogrnLabel} {COMPANY.ogrn}</span>
+            <span>{COMPANY.legalAddress}</span>
+          </div>
+          <nav className={styles.legalLinks}>
+            <Link to="/legal/privacy">Политика конфиденциальности</Link>
+            <Link to="/legal/offer">Публичная оферта</Link>
+            <Link to="/legal/delivery">Доставка и возврат</Link>
+          </nav>
         </div>
       </div>
     </footer>

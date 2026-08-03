@@ -256,6 +256,38 @@
   border: 1px solid rgba(74, 154, 197, 0.22);
 }
 
+/* Чекбоксы согласия */
+.agree {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.check {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--text-muted);
+  cursor: pointer;
+}
+
+.check input {
+  width: 18px;
+  height: 18px;
+  margin: 1px 0 0;
+  flex-shrink: 0;
+  accent-color: var(--primary);
+  cursor: pointer;
+}
+
+.check a {
+  color: var(--primary);
+  font-weight: 600;
+}
+.check a:hover { text-decoration: underline; }
+
 .inputError {
   border-color: rgba(220, 60, 60, 0.5) !important;
   background: rgba(220, 60, 60, 0.04) !important;

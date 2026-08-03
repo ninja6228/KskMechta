@@ -18,6 +18,7 @@ import ProgramPage from './pages/ProgramPage'
 import ProductPage from './pages/ProductPage'
 import ServicePage from './pages/ServicePage'
 import TeamPage from './pages/TeamPage'
+import LegalPage from './pages/LegalPage'
 
 function HomePage() {
   return (
@@ -62,6 +63,7 @@ export default function App() {
           <Route path="/product/:id" element={<ProductPage />} />
           <Route path="/service/:id" element={<ServicePage />} />
           <Route path="/team/:id" element={<TeamPage />} />
+          <Route path="/legal/:id" element={<LegalPage />} />
         </Routes>
       </ModalProvider>
     </BrowserRouter>
