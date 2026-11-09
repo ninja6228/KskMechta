@@ -1,4 +1,3 @@
-import { useModal } from '../context/ModalContext'
 import { useSyncedCountUp } from '../hooks/useCountUp'
 import StatCounter from './StatCounter'
 import WalkingHorse from './WalkingHorse'
@@ -7,7 +6,6 @@ import logoSvg from '../imgs/logo.svg'
 import styles from './Hero.module.css'
 
 export default function Hero() {
-  const { openModal } = useModal()
   const { ref: statsRef, progress } = useSyncedCountUp()
 
   return (
@@ -43,14 +41,19 @@ export default function Hero() {
           и незабываемых приключений под открытым небом
         </p>
 
-        {/* Кнопки записи и выбора программы временно скрыты
         <div className={styles.ctas}>
-          <button className="btn-glass accent" onClick={() => openModal()}>
-            Записаться на занятие
-          </button>
-          <a href="#programs" className="btn-glass">Выбрать программу</a>
+          <a href="tel:+79217234441" className="btn-glass accent">
+            +7 (921) 723-44-41
+          </a>
+          <a
+            href="https://vk.com/ksk.mechta"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-glass"
+          >
+            Написать в VK
+          </a>
         </div>
-        */}
 
         <div className={styles.stats} ref={statsRef}>
           <div className={styles.stat}>

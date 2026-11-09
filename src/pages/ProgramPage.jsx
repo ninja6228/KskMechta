@@ -52,9 +52,7 @@ export default function ProgramPage() {
             <img src="https://kskmechta.ru/images/icons/logo.svg" alt="КСК Мечта" draggable={false} />
             <span>КСК Мечта</span>
           </Link>
-          {/* Кнопка записи временно скрыта
           <button className="btn-glass accent" onClick={() => openModal(id)}>Записаться</button>
-          */}
         </div>
       </header>
 
@@ -139,17 +137,20 @@ export default function ProgramPage() {
 
               <div className={styles.ctaCard}>
                 <div className={styles.ctaPrice}>{program.price}</div>
-                <p className={styles.ctaNote}>Запись по телефону или онлайн</p>
+                <p className={styles.ctaNote}>Запись по телефону или во ВКонтакте</p>
                 <a href="tel:+79217234441" className="btn-glass accent" style={{ width: '100%', justifyContent: 'center' }}>
-                  Позвонить
+                  +7 (921) 723-44-41
                 </a>
-                {/* Кнопка «Оставить заявку» временно скрыта
-                <button className="btn-glass" style={{ width: '100%', justifyContent: 'center', marginTop: 10 }} onClick={() => openModal(id)}>
-                  Оставить заявку
-                </button>
-                */}
-                <div className={styles.ctaPhone}>+7 (921) 723-44-41</div>
-                <div className={styles.ctaHours}>Пн–Вс: 9:00 – 20:00</div>
+                <a
+                  href="https://vk.com/ksk.mechta"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-glass"
+                  style={{ width: '100%', justifyContent: 'center', marginTop: 10 }}
+                >
+                  Написать в VK
+                </a>
+                <div className={styles.ctaHours} style={{ marginTop: 12 }}>Пн–Вс: 9:00 – 20:00</div>
               </div>
             </div>
           </div>

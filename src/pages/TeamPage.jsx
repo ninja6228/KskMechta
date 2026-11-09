@@ -50,9 +50,7 @@ export default function TeamPage() {
             <img src="https://kskmechta.ru/images/icons/logo.svg" alt="КСК Мечта" draggable={false} />
             <span>КСК Мечта</span>
           </Link>
-          {/* Кнопка записи временно скрыта
           <button className="btn-glass accent" onClick={() => openModal()}>Записаться</button>
-          */}
         </div>
       </header>
 
@@ -146,16 +144,24 @@ export default function TeamPage() {
               </div>
 
               <div className={styles.ctaCard}>
-                <p className={styles.ctaNote}>Хотите заниматься с {firstName}?</p>
+                <p className={styles.ctaNote}>Хотите заниматься с {firstName}? Позвоните или напишите в VK</p>
                 <a
                   href="tel:+79217234441"
-                  className="btn-glass"
+                  className="btn-glass accent"
                   style={{ width: '100%', justifyContent: 'center' }}
                 >
-                  Позвонить
+                  +7 (921) 723-44-41
                 </a>
-                <div className={styles.ctaPhone}>+7 (921) 723-44-41</div>
-                <div className={styles.ctaHours}>Пн–Вс: 9:00 – 20:00</div>
+                <a
+                  href="https://vk.com/ksk.mechta"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-glass"
+                  style={{ width: '100%', justifyContent: 'center', marginTop: 10 }}
+                >
+                  Написать в VK
+                </a>
+                <div className={styles.ctaHours} style={{ marginTop: 12 }}>Пн–Вс: 9:00 – 20:00</div>
               </div>
             </div>
           </div>

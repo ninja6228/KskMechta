@@ -97,14 +97,14 @@ export default function Programs() {
               <span className={styles.customIcon}>✨</span>
               <h3 className={styles.customTitle}>Не нашли ничего для себя?</h3>
               <p className={styles.customDesc}>
-                Ничего страшного — расскажите, что хотите, и мы подберём или организуем программу под вас
+                Ничего страшного — позвоните или напишите в VK, и мы подберём или организуем программу под вас
               </p>
               <button
                 type="button"
                 className={`btn-glass accent ${styles.customCta}`}
                 onClick={openCustomProgramModal}
               >
-                Предложить свою программу
+                Связаться с нами
               </button>
             </div>
           </div>

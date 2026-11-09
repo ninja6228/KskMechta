@@ -5,20 +5,18 @@ import Modal from './components/Modal'
 import Header from './components/Header'
 import Hero from './components/Hero'
 import Features from './components/Features'
-// import Programs from './components/Programs' // временно скрыто
-import Products from './components/Products'
+import Programs from './components/Programs'
 import Gallery from './components/Gallery'
 import Team from './components/Team'
 import Testimonials from './components/Testimonials'
+import ClubMap from './components/ClubMap'
 import HorseshoeDivider from './components/HorseshoeDivider'
 import Footer from './components/Footer'
 import ScrollToTop from './components/ScrollToTop'
 import Seo, { buildSportsActivityLocationLd } from './components/Seo'
 import ProgramPage from './pages/ProgramPage'
-import ProductPage from './pages/ProductPage'
 import ServicePage from './pages/ServicePage'
 import TeamPage from './pages/TeamPage'
-import LegalPage from './pages/LegalPage'
 
 function HomePage() {
   return (
@@ -34,17 +32,15 @@ function HomePage() {
         <HorseshoeDivider />
         <Features />
         <HorseshoeDivider flipped />
-        {/* Раздел «Популярные программы» временно скрыт
         <Programs />
         <HorseshoeDivider flipped />
-        */}
-        <Products />
-        <HorseshoeDivider />
         <Gallery />
         <HorseshoeDivider />
         <Team />
         <HorseshoeDivider flipped />
         <Testimonials />
+        <HorseshoeDivider />
+        <ClubMap />
       </main>
       <Footer />
     </>
@@ -60,10 +56,8 @@ export default function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/program/:id" element={<ProgramPage />} />
-          <Route path="/product/:id" element={<ProductPage />} />
           <Route path="/service/:id" element={<ServicePage />} />
           <Route path="/team/:id" element={<TeamPage />} />
-          <Route path="/legal/:id" element={<LegalPage />} />
         </Routes>
       </ModalProvider>
     </BrowserRouter>

@@ -48,9 +48,7 @@ export default function ServicePage() {
             <img src="https://kskmechta.ru/images/icons/logo.svg" alt="КСК Мечта" draggable={false} />
             <span>КСК Мечта</span>
           </Link>
-          {/* Кнопка записи временно скрыта
           <button className="btn-glass accent" onClick={() => openModal()}>Записаться</button>
-          */}
         </div>
       </header>
 
@@ -106,17 +104,20 @@ export default function ServicePage() {
 
               <div className={styles.ctaCard}>
                 {priceFeature && <div className={styles.ctaPrice}>{priceFeature.value}</div>}
-                <p className={styles.ctaNote}>Запись по телефону или онлайн</p>
-                <a href="tel:+74951234567" className="btn-glass accent" style={{ width: '100%', justifyContent: 'center' }}>
-                  Позвонить
+                <p className={styles.ctaNote}>Запись по телефону или во ВКонтакте</p>
+                <a href="tel:+79217234441" className="btn-glass accent" style={{ width: '100%', justifyContent: 'center' }}>
+                  +7 (921) 723-44-41
                 </a>
-                {/* Кнопка «Оставить заявку» временно скрыта
-                <button className="btn-glass" style={{ width: '100%', justifyContent: 'center', marginTop: 10 }} onClick={() => openModal()}>
-                  Оставить заявку
-                </button>
-                */}
-                <div className={styles.ctaPhone}>+7 (495) 123-45-67</div>
-                <div className={styles.ctaHours}>Пн–Вс: 9:00 – 20:00</div>
+                <a
+                  href="https://vk.com/ksk.mechta"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-glass"
+                  style={{ width: '100%', justifyContent: 'center', marginTop: 10 }}
+                >
+                  Написать в VK
+                </a>
+                <div className={styles.ctaHours} style={{ marginTop: 12 }}>Пн–Вс: 9:00 – 20:00</div>
               </div>
             </div>
           </div>
